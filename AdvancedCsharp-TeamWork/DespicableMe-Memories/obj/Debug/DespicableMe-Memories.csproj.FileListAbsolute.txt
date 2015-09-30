@@ -7,3 +7,6 @@ c:\users\georgi\documents\visual studio 2013\Projects\AdvancedCsharp-TeamWork\De
 c:\users\georgi\documents\visual studio 2013\Projects\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.exe
 c:\users\georgi\documents\visual studio 2013\Projects\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.pdb
 c:\users\georgi\documents\visual studio 2013\Projects\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe_Memories.Form1.resources
+C:\Users\user1\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\DespicableMe-Memories.exe.config
+C:\Users\user1\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.exe
+C:\Users\user1\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.pdb
