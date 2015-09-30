@@ -29,3 +29,4 @@ C:\Users\Moni\Desktop\Despicable Me-Memories\Teamwork-Project-Assignment\Advance
 C:\Users\Moni\Desktop\Despicable Me-Memories\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe_Memories.Properties.Resources.resources
 C:\Users\Moni\Desktop\Despicable Me-Memories\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.csproj.GenerateResource.Cache
 C:\Users\Moni\Desktop\Despicable Me-Memories\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\Resources\menu.jpg
+C:\Users\Georgi\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\Resources\menu.jpg
