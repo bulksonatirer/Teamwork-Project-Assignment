@@ -79,7 +79,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\menu.jpg" />
+    <None Include="Resources\startShadow.png" />
+    <None Include="Resources\scoreShadow.png" />
+    <None Include="Resources\score.png" />
+    <None Include="Resources\optionsShadow.png" />
+    <None Include="Resources\options.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\backShadow.png" />
+    <None Include="Resources\exit.png" />
+    <None Include="Resources\exitShadow.png" />
+    <None Include="Resources\help.png" />
+    <None Include="Resources\helpShadow.png" />
+    <None Include="Resources\mainMenu.png" />
+    <None Include="Resources\mainMenuShadow.png" />
+    <Content Include="Resources\menu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\start.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
