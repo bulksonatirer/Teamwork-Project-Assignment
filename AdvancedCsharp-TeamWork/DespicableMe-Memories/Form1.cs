@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,18 +24,19 @@ namespace DespicableMe_Memories
             //--------PictureBox-Remove-Transparent--------\\
             var startPos = this.PointToScreen(start.Location);          
             MakeTransparent(start, startPos);
-
+                    
             var exitPos = this.PointToScreen(exit.Location);
             MakeTransparent(exit, exitPos);
 
-            var optionsPos = this.PointToScreen(options.Location);    //Наложи се да премахна всичките "label" защото след като сложа "PictureBox" върху тях 
-            MakeTransparent(options, optionsPos);                     //те не работят... А и проверих дали може да зададен "exit" дирекно на "PictureBox-a" 
-                                                                      // и става без проблеми :) 
+            var optionsPos = this.PointToScreen(options.Location);    
+            MakeTransparent(options, optionsPos);                      
+                                                                      
             var scorePos = this.PointToScreen(score.Location);
             MakeTransparent(score, scorePos);
 
             var helpPos = this.PointToScreen(help.Location);
             MakeTransparent(help, helpPos);
+
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
@@ -47,7 +49,7 @@ namespace DespicableMe_Memories
 
         private void start_Click(object sender, EventArgs e)
         {
-            
+            StartMenu.Visible = false;
         }
 
         private void score_Click(object sender, EventArgs e)
@@ -65,18 +67,18 @@ namespace DespicableMe_Memories
             System.Windows.Forms.Application.Exit();
         }
 
-            //----------Make-Mouse-Hover------------\\
-        private void start_MouseHover(object sender, EventArgs e)
+            //----------Make-Mouse-Enter------------\\
+        private void start_MouseEnter(object sender, EventArgs e)
         {
-            start.Image = Resources.startShadow;                          // Наложи се картините да бъдат auto-size защото картинките с сянка ги взема дирекно
-        }                                                                // от "Resources" и не ги сляга с тяхния размер...Но мисля че и така не е лошо.
+            start.Image = Resources.startShadow;
+        }                                                        
 
         private void start_MouseLeave(object sender, EventArgs e)
         {
             start.Image = Resources.start;     
         }
 
-        private void score_MouseHover(object sender, EventArgs e)
+        private void score_MouseEnter(object sender, EventArgs e)
         {
             score.Image = Resources.scoreShadow;   
         }
@@ -86,9 +88,9 @@ namespace DespicableMe_Memories
             score.Image = Resources.score;   
         }
 
-        private void options_MouseHover(object sender, EventArgs e)
+        private void options_MouseEnter(object sender, EventArgs e)
         {
-            options.Image = Resources.optionsShadow;   
+            options.Image = Resources.optionsShadow;
         }
 
         private void options_MouseLeave(object sender, EventArgs e)
@@ -96,7 +98,7 @@ namespace DespicableMe_Memories
             options.Image = Resources.options;
         }
 
-        private void exit_MouseHover(object sender, EventArgs e)
+        private void exit_MouseEnter(object sender, EventArgs e)
         {
             exit.Image = Resources.exitShadow;  
         }
@@ -106,15 +108,21 @@ namespace DespicableMe_Memories
             exit.Image = Resources.exit;  
         }
 
-        private void help_MouseHover(object sender, EventArgs e)
+        private void help_MouseEnter(object sender, EventArgs e)
         {
-            help.Image = Resources.helpShadow;  
+            help.Image = Resources.helpShadow;
         }
 
         private void help_MouseLeave(object sender, EventArgs e)
         {
-            help.Image = Resources.help;  
+            help.Image = Resources.help;
         }
+
+        
+
+        
+
+        
 
     }
 }

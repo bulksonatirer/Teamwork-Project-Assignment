@@ -60,52 +60,52 @@
             this.start.Image = global::DespicableMe_Memories.Properties.Resources.start;
             this.start.Location = new System.Drawing.Point(696, 144);
             this.start.Name = "start";
-            this.start.Size = new System.Drawing.Size(235, 58);
-            this.start.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.start.Size = new System.Drawing.Size(176, 58);
+            this.start.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.start.TabIndex = 5;
             this.start.TabStop = false;
             this.start.Click += new System.EventHandler(this.start_Click);
+            this.start.MouseEnter += new System.EventHandler(this.start_MouseEnter);
             this.start.MouseLeave += new System.EventHandler(this.start_MouseLeave);
-            this.start.MouseHover += new System.EventHandler(this.start_MouseHover);
             // 
             // exit
             // 
             this.exit.Image = global::DespicableMe_Memories.Properties.Resources.exit;
             this.exit.Location = new System.Drawing.Point(696, 444);
             this.exit.Name = "exit";
-            this.exit.Size = new System.Drawing.Size(176, 56);
-            this.exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.exit.Size = new System.Drawing.Size(176, 52);
+            this.exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.exit.TabIndex = 6;
             this.exit.TabStop = false;
             this.exit.Click += new System.EventHandler(this.exit_Click);
+            this.exit.MouseEnter += new System.EventHandler(this.exit_MouseEnter);
             this.exit.MouseLeave += new System.EventHandler(this.exit_MouseLeave);
-            this.exit.MouseHover += new System.EventHandler(this.exit_MouseHover);
             // 
             // options
             // 
             this.options.Image = global::DespicableMe_Memories.Properties.Resources.options;
             this.options.Location = new System.Drawing.Point(696, 342);
             this.options.Name = "options";
-            this.options.Size = new System.Drawing.Size(313, 58);
-            this.options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.options.Size = new System.Drawing.Size(235, 58);
+            this.options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.options.TabIndex = 7;
             this.options.TabStop = false;
             this.options.Click += new System.EventHandler(this.options_Click);
+            this.options.MouseEnter += new System.EventHandler(this.options_MouseEnter);
             this.options.MouseLeave += new System.EventHandler(this.options_MouseLeave);
-            this.options.MouseHover += new System.EventHandler(this.options_MouseHover);
             // 
             // score
             // 
             this.score.Image = global::DespicableMe_Memories.Properties.Resources.score;
             this.score.Location = new System.Drawing.Point(696, 240);
             this.score.Name = "score";
-            this.score.Size = new System.Drawing.Size(232, 58);
-            this.score.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.score.Size = new System.Drawing.Size(176, 58);
+            this.score.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.score.TabIndex = 8;
             this.score.TabStop = false;
             this.score.Click += new System.EventHandler(this.score_Click);
+            this.score.MouseEnter += new System.EventHandler(this.score_MouseEnter);
             this.score.MouseLeave += new System.EventHandler(this.score_MouseLeave);
-            this.score.MouseHover += new System.EventHandler(this.score_MouseHover);
             // 
             // help
             // 
@@ -113,11 +113,11 @@
             this.help.Location = new System.Drawing.Point(1073, 614);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(179, 55);
-            this.help.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.help.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.help.TabIndex = 9;
             this.help.TabStop = false;
+            this.help.MouseEnter += new System.EventHandler(this.help_MouseEnter);
             this.help.MouseLeave += new System.EventHandler(this.help_MouseLeave);
-            this.help.MouseHover += new System.EventHandler(this.help_MouseHover);
             // 
             // MainForm
             // 
@@ -143,7 +143,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.score)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.help)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
