@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace DespicableMe_Memories
 {
@@ -16,21 +17,28 @@ namespace DespicableMe_Memories
     {
         static PictureBox fixedStart;
 
+        static string fullscreenSetting = "fullscreen";
+        static string soundSetting = "sound";
+
+        static string fullscreenSettingState = ReadSetting(fullscreenSetting);
+        static string soundSettingState = ReadSetting(soundSetting);
+
         public MainForm()
         {
             InitializeComponent();
             fixedStart = StartMenu;
 
+
             //--------PictureBox-Remove-Transparent--------\\
-            var startPos = this.PointToScreen(start.Location);          
+            var startPos = this.PointToScreen(start.Location);
             MakeTransparent(start, startPos);
-                    
+
             var exitPos = this.PointToScreen(exit.Location);
             MakeTransparent(exit, exitPos);
 
-            var optionsPos = this.PointToScreen(options.Location);    
-            MakeTransparent(options, optionsPos);                      
-                                                                      
+            var optionsPos = this.PointToScreen(options.Location);
+            MakeTransparent(options, optionsPos);
+
             var scorePos = this.PointToScreen(score.Location);
             MakeTransparent(score, scorePos);
 
@@ -64,6 +72,28 @@ namespace DespicableMe_Memories
             helpBox.Location = helpBoxPos;
             helpBox.BackColor = Color.FromArgb(130, 0, 0, 0);
 
+            if (soundSettingState == "true")
+            {
+                soundOn.Image = Resources.onShadow;
+                soundOff.Image = Resources.off;
+            }
+            else if (soundSettingState == "false")
+            {
+                soundOn.Image = Resources.on;
+                soundOff.Image = Resources.offShadow;
+            }
+
+            if (fullscreenSettingState == "true")
+            {
+                fullscreenOn.Image = Resources.onShadow;
+                fullscreenOff.Image = Resources.off;
+            }
+            else if (fullscreenSettingState == "false")
+            {
+                fullscreenOn.Image = Resources.on;
+                fullscreenOff.Image = Resources.offShadow;
+            }
+
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
@@ -73,11 +103,11 @@ namespace DespicableMe_Memories
             button.Location = pos;
             button.BackColor = Color.Transparent;
         }
-            //-----------On-Click-Function-----------\\
+        //-----------On-Click-Function-----------\\
         private void start_Click(object sender, EventArgs e)
         {
             StartMenu.Visible = false;
-            
+
         }
 
         private void score_Click(object sender, EventArgs e)
@@ -116,7 +146,7 @@ namespace DespicableMe_Memories
             fullscreen.Visible = false;
             fullscreenOn.Visible = false;
             fullscreenOff.Visible = false;
-            
+
             start.Visible = true;
             score.Visible = true;
             options.Visible = true;
@@ -124,25 +154,25 @@ namespace DespicableMe_Memories
             help.Visible = true;
         }
 
-            //----------Make-Mouse-Enter------------\\
+        //----------Make-Mouse-Enter------------\\
         private void start_MouseEnter(object sender, EventArgs e)
         {
             start.Image = Resources.startShadow;
-        }                                                        
+        }
 
         private void start_MouseLeave(object sender, EventArgs e)
         {
-            start.Image = Resources.start;     
+            start.Image = Resources.start;
         }
 
         private void score_MouseEnter(object sender, EventArgs e)
         {
-            score.Image = Resources.scoreShadow;   
+            score.Image = Resources.scoreShadow;
         }
 
         private void score_MouseLeave(object sender, EventArgs e)
         {
-            score.Image = Resources.score;   
+            score.Image = Resources.score;
         }
 
         private void options_MouseEnter(object sender, EventArgs e)
@@ -157,12 +187,12 @@ namespace DespicableMe_Memories
 
         private void exit_MouseEnter(object sender, EventArgs e)
         {
-            exit.Image = Resources.exitShadow;  
+            exit.Image = Resources.exitShadow;
         }
 
         private void exit_MouseLeave(object sender, EventArgs e)
         {
-            exit.Image = Resources.exit;  
+            exit.Image = Resources.exit;
         }
 
         private void help_MouseEnter(object sender, EventArgs e)
@@ -191,7 +221,7 @@ namespace DespicableMe_Memories
 
         private void back_MouseEnter(object sender, EventArgs e)
         {
-            
+
             back.Image = Resources.backShadow;
         }
 
@@ -200,13 +230,63 @@ namespace DespicableMe_Memories
             back.Image = Resources.back;
         }
 
-        
+        static string ReadSetting(string key)
+        {
 
-        
+            var appSettings = ConfigurationManager.AppSettings;
+            string result = appSettings[key] ?? "Not Found";
+            return result;
+        }
+        static void AddUpdateAppSettings(string key, string value)
+        {
+            try
+            {
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+                if (settings[key] == null)
+                {
+                    settings.Add(key, value);
+                }
+                else
+                {
+                    settings[key].Value = value;
+                }
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            }
+            catch (ConfigurationErrorsException)
+            {
+                MessageBox.Show("Error writing app settings");
+            }
+        }
 
-        
+        private void fullscreenOn_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(fullscreenSetting, "true");
+            fullscreenOn.Image = Resources.onShadow;
+            fullscreenOff.Image = Resources.off;
+        }
 
-        
+        private void fullscreenOff_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(fullscreenSetting, "false");
+            fullscreenOff.Image = Resources.offShadow;
+            fullscreenOn.Image = Resources.on;
+        }
+
+        private void soundOn_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(soundSetting, "true");
+            soundOn.Image = Resources.onShadow;
+            soundOff.Image = Resources.off;
+        }
+
+        private void soundOff_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(soundSetting, "false");
+            soundOff.Image = Resources.offShadow;
+            soundOn.Image = Resources.on;
+        }
 
     }
 }

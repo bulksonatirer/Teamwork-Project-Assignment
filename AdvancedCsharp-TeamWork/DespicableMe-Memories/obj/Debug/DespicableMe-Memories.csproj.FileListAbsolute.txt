@@ -37,3 +37,13 @@ C:\Users\user1\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\Despi
 C:\Users\user1\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe_Memories.MainForm.resources
 C:\Users\user1\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe_Memories.Properties.Resources.resources
 C:\Users\user1\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.csproj.GenerateResource.Cache
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\DespicableMe-Memories.exe.config
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.exe
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.pdb
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\Resources\menu.jpg
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\DespicableMe-Memories.exe
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\DespicableMe-Memories.pdb
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.csprojResolveAssemblyReference.cache
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe_Memories.MainForm.resources
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe_Memories.Properties.Resources.resources
+C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.csproj.GenerateResource.Cache

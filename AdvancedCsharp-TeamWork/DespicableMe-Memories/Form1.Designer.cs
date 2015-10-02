@@ -68,6 +68,7 @@
             this.soundOff.TabIndex = 17;
             this.soundOff.TabStop = false;
             this.soundOff.Visible = false;
+            this.soundOff.Click += new System.EventHandler(this.soundOff_Click);
             // 
             // fullscreenOff
             // 
@@ -79,6 +80,7 @@
             this.fullscreenOff.TabIndex = 16;
             this.fullscreenOff.TabStop = false;
             this.fullscreenOff.Visible = false;
+            this.fullscreenOff.Click += new System.EventHandler(this.fullscreenOff_Click);
             // 
             // soundOn
             // 
@@ -90,6 +92,7 @@
             this.soundOn.TabIndex = 15;
             this.soundOn.TabStop = false;
             this.soundOn.Visible = false;
+            this.soundOn.Click += new System.EventHandler(this.soundOn_Click);
             // 
             // fullscreenOn
             // 
@@ -101,6 +104,7 @@
             this.fullscreenOn.TabIndex = 14;
             this.fullscreenOn.TabStop = false;
             this.fullscreenOn.Visible = false;
+            this.fullscreenOn.Click += new System.EventHandler(this.fullscreenOn_Click);
             // 
             // fullscreen
             // 

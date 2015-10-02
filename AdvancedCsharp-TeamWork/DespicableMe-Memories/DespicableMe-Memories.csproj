@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -101,6 +102,8 @@
     <None Include="Resources\sound.png" />
     <None Include="Resources\on.png" />
     <None Include="Resources\off.png" />
+    <None Include="Resources\offShadow.png" />
+    <None Include="Resources\onShadow.png" />
     <Content Include="Resources\start.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
