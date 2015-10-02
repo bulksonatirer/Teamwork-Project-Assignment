@@ -37,6 +37,12 @@ namespace DespicableMe_Memories
             var helpPos = this.PointToScreen(help.Location);
             MakeTransparent(help, helpPos);
 
+            var helpBoxPos = this.PointToScreen(helpBox.Location);
+            helpBoxPos = StartMenu.PointToClient(helpBoxPos);
+            helpBox.Parent = fixedStart;
+            helpBox.Location = helpBoxPos;
+            helpBox.BackColor = Color.FromArgb(130, 0, 0, 0);
+
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
@@ -111,11 +117,25 @@ namespace DespicableMe_Memories
         private void help_MouseEnter(object sender, EventArgs e)
         {
             help.Image = Resources.helpShadow;
+
+            helpBox.Visible = true;
+
+            start.Visible = false;
+            score.Visible = false;
+            options.Visible = false;
+            exit.Visible = false;
         }
 
         private void help_MouseLeave(object sender, EventArgs e)
         {
             help.Image = Resources.help;
+
+            helpBox.Visible = false;
+
+            start.Visible = true;
+            score.Visible = true;
+            options.Visible = true;
+            exit.Visible = true;
         }
 
         

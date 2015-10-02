@@ -93,6 +93,7 @@
     <None Include="Resources\helpShadow.png" />
     <None Include="Resources\mainMenu.png" />
     <None Include="Resources\mainMenuShadow.png" />
+    <None Include="Resources\instuction.png" />
     <Content Include="Resources\menu.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

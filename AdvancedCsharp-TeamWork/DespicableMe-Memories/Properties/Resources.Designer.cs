@@ -123,6 +123,16 @@ namespace DespicableMe_Memories.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap instuction {
+            get {
+                object obj = ResourceManager.GetObject("instuction", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap mainMenu {
             get {
                 object obj = ResourceManager.GetObject("mainMenu", resourceCulture);
