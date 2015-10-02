@@ -96,6 +96,13 @@
     <None Include="Resources\mainMenuShadow.png" />
     <None Include="Resources\instuction.png" />
     <None Include="Resources\fullscreen.png" />
+    <None Include="Resources\easy.png" />
+    <None Include="Resources\medium.png" />
+    <None Include="Resources\hard.png" />
+    <None Include="Resources\hardShadow.png" />
+    <None Include="Resources\easyShadow.png" />
+    <None Include="Resources\mediumShadow.png" />
+    <None Include="Resources\BackgroundGameScreen.jpg" />
     <Content Include="Resources\menu.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

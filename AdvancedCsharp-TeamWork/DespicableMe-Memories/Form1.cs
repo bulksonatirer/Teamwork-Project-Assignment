@@ -66,6 +66,15 @@ namespace DespicableMe_Memories
             var soundOffPos = this.PointToScreen(soundOff.Location);
             MakeTransparent(soundOff, soundOffPos);
 
+            var easyPos = this.PointToScreen(easy.Location);
+            MakeTransparent(easy, easyPos);
+
+            var mediumPos = this.PointToScreen(medium.Location);
+            MakeTransparent(medium, mediumPos);
+
+            var hardPos = this.PointToScreen(hard.Location);
+            MakeTransparent(hard, hardPos);
+
             var helpBoxPos = this.PointToScreen(helpBox.Location);
             helpBoxPos = StartMenu.PointToClient(helpBoxPos);
             helpBox.Parent = fixedStart;
@@ -93,7 +102,6 @@ namespace DespicableMe_Memories
                 fullscreenOn.Image = Resources.on;
                 fullscreenOff.Image = Resources.offShadow;
             }
-
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
@@ -103,11 +111,20 @@ namespace DespicableMe_Memories
             button.Location = pos;
             button.BackColor = Color.Transparent;
         }
+
         //-----------On-Click-Function-----------\\
         private void start_Click(object sender, EventArgs e)
         {
-            StartMenu.Visible = false;
+            easy.Visible = true;
+            medium.Visible = true;
+            hard.Visible = true;
+            back.Visible = true;
 
+            start.Visible = false;
+            score.Visible = false;
+            options.Visible = false;
+            exit.Visible = false;
+            help.Visible = false;
         }
 
         private void score_Click(object sender, EventArgs e)
@@ -146,12 +163,34 @@ namespace DespicableMe_Memories
             fullscreen.Visible = false;
             fullscreenOn.Visible = false;
             fullscreenOff.Visible = false;
+            easy.Visible = false;
+            medium.Visible = false;
+            hard.Visible = false;
+            back.Visible = false;
 
             start.Visible = true;
             score.Visible = true;
             options.Visible = true;
             exit.Visible = true;
             help.Visible = true;
+        }
+
+        private void easy_Click(object sender, EventArgs e)
+        {
+            StartMenu.Visible = false;
+
+            easyGameScreen.Visible = true;
+            
+        }
+
+        private void medium_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hard_Click(object sender, EventArgs e)
+        {
+
         }
 
         //----------Make-Mouse-Enter------------\\
@@ -230,6 +269,43 @@ namespace DespicableMe_Memories
             back.Image = Resources.back;
         }
 
+        private void soundOff_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(soundSetting, "false");
+            soundOff.Image = Resources.offShadow;
+            soundOn.Image = Resources.on;
+        }
+
+        private void easy_MouseEnter(object sender, EventArgs e)
+        {
+            easy.Image = Resources.easyShadow;
+        }
+
+        private void easy_MouseLeave(object sender, EventArgs e)
+        {
+            easy.Image = Resources.easy;
+        }
+
+        private void medium_MouseEnter(object sender, EventArgs e)
+        {
+            medium.Image = Resources.mediumShadow;
+        }
+
+        private void medium_MouseLeave(object sender, EventArgs e)
+        {
+            medium.Image = Resources.medium;
+        }
+
+        private void hard_MouseEnter(object sender, EventArgs e)
+        {
+            hard.Image = Resources.hardShadow;
+        }
+
+        private void hard_MouseLeave(object sender, EventArgs e)
+        {
+            hard.Image = Resources.hard;
+        }
+
         static string ReadSetting(string key)
         {
 
@@ -280,13 +356,5 @@ namespace DespicableMe_Memories
             soundOn.Image = Resources.onShadow;
             soundOff.Image = Resources.off;
         }
-
-        private void soundOff_Click(object sender, EventArgs e)
-        {
-            AddUpdateAppSettings(soundSetting, "false");
-            soundOff.Image = Resources.offShadow;
-            soundOn.Image = Resources.on;
-        }
-
     }
 }
