@@ -94,9 +94,13 @@
     <None Include="Resources\mainMenu.png" />
     <None Include="Resources\mainMenuShadow.png" />
     <None Include="Resources\instuction.png" />
+    <None Include="Resources\fullscreen.png" />
     <Content Include="Resources\menu.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\sound.png" />
+    <None Include="Resources\on.png" />
+    <None Include="Resources\off.png" />
     <Content Include="Resources\start.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -37,6 +37,15 @@ namespace DespicableMe_Memories
             var helpPos = this.PointToScreen(help.Location);
             MakeTransparent(help, helpPos);
 
+            var backPos = this.PointToScreen(back.Location);
+            MakeTransparent(back, backPos);
+
+            var soundPos = this.PointToScreen(sound.Location);
+            MakeTransparent(sound, soundPos);
+
+            var fullscreenPos = this.PointToScreen(fullscreen.Location);
+            MakeTransparent(fullscreen, fullscreenPos);
+
             var helpBoxPos = this.PointToScreen(helpBox.Location);
             helpBoxPos = StartMenu.PointToClient(helpBoxPos);
             helpBox.Parent = fixedStart;
@@ -56,6 +65,7 @@ namespace DespicableMe_Memories
         private void start_Click(object sender, EventArgs e)
         {
             StartMenu.Visible = false;
+            
         }
 
         private void score_Click(object sender, EventArgs e)
@@ -65,12 +75,31 @@ namespace DespicableMe_Memories
 
         private void options_Click(object sender, EventArgs e)
         {
+            back.Visible = true;
+            sound.Visible = true;
+            fullscreen.Visible = true;
 
+            start.Visible = false;
+            score.Visible = false;
+            options.Visible = false;
+            exit.Visible = false;
         }
 
         private void exit_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            back.Visible = false;
+            sound.Visible = false;
+            fullscreen.Visible = false;
+
+            start.Visible = true;
+            score.Visible = true;
+            options.Visible = true;
+            exit.Visible = true;
         }
 
             //----------Make-Mouse-Enter------------\\
@@ -137,6 +166,19 @@ namespace DespicableMe_Memories
             options.Visible = true;
             exit.Visible = true;
         }
+
+        private void back_MouseEnter(object sender, EventArgs e)
+        {
+            
+            back.Image = Resources.backShadow;
+        }
+
+        private void back_MouseLeave(object sender, EventArgs e)
+        {
+            back.Image = Resources.back;
+        }
+
+        
 
         
 
