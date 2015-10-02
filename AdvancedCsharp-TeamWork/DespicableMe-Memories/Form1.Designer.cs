@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.soundOff = new System.Windows.Forms.PictureBox();
+            this.fullscreenOff = new System.Windows.Forms.PictureBox();
+            this.soundOn = new System.Windows.Forms.PictureBox();
+            this.fullscreenOn = new System.Windows.Forms.PictureBox();
             this.fullscreen = new System.Windows.Forms.PictureBox();
             this.sound = new System.Windows.Forms.PictureBox();
             this.back = new System.Windows.Forms.PictureBox();
@@ -42,10 +42,10 @@
             this.exit = new System.Windows.Forms.PictureBox();
             this.start = new System.Windows.Forms.PictureBox();
             this.StartMenu = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullscreenOff)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundOn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullscreenOn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullscreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sound)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
@@ -58,45 +58,49 @@
             ((System.ComponentModel.ISupportInitialize)(this.StartMenu)).BeginInit();
             this.SuspendLayout();
             // 
-            // pictureBox4
+            // soundOff
             // 
-            this.pictureBox4.Image = global::DespicableMe_Memories.Properties.Resources.off;
-            this.pictureBox4.Location = new System.Drawing.Point(780, 502);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(76, 35);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 17;
-            this.pictureBox4.TabStop = false;
+            this.soundOff.Image = global::DespicableMe_Memories.Properties.Resources.off;
+            this.soundOff.Location = new System.Drawing.Point(780, 483);
+            this.soundOff.Name = "soundOff";
+            this.soundOff.Size = new System.Drawing.Size(76, 35);
+            this.soundOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.soundOff.TabIndex = 17;
+            this.soundOff.TabStop = false;
+            this.soundOff.Visible = false;
             // 
-            // pictureBox3
+            // fullscreenOff
             // 
-            this.pictureBox3.Image = global::DespicableMe_Memories.Properties.Resources.off;
-            this.pictureBox3.Location = new System.Drawing.Point(780, 333);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(76, 35);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 16;
-            this.pictureBox3.TabStop = false;
+            this.fullscreenOff.Image = global::DespicableMe_Memories.Properties.Resources.off;
+            this.fullscreenOff.Location = new System.Drawing.Point(780, 304);
+            this.fullscreenOff.Name = "fullscreenOff";
+            this.fullscreenOff.Size = new System.Drawing.Size(76, 35);
+            this.fullscreenOff.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fullscreenOff.TabIndex = 16;
+            this.fullscreenOff.TabStop = false;
+            this.fullscreenOff.Visible = false;
             // 
-            // pictureBox2
+            // soundOn
             // 
-            this.pictureBox2.Image = global::DespicableMe_Memories.Properties.Resources.on;
-            this.pictureBox2.Location = new System.Drawing.Point(696, 502);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(62, 35);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 15;
-            this.pictureBox2.TabStop = false;
+            this.soundOn.Image = global::DespicableMe_Memories.Properties.Resources.on;
+            this.soundOn.Location = new System.Drawing.Point(696, 483);
+            this.soundOn.Name = "soundOn";
+            this.soundOn.Size = new System.Drawing.Size(62, 35);
+            this.soundOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.soundOn.TabIndex = 15;
+            this.soundOn.TabStop = false;
+            this.soundOn.Visible = false;
             // 
-            // pictureBox1
+            // fullscreenOn
             // 
-            this.pictureBox1.Image = global::DespicableMe_Memories.Properties.Resources.on;
-            this.pictureBox1.Location = new System.Drawing.Point(696, 333);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(62, 35);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.fullscreenOn.Image = global::DespicableMe_Memories.Properties.Resources.on;
+            this.fullscreenOn.Location = new System.Drawing.Point(696, 304);
+            this.fullscreenOn.Name = "fullscreenOn";
+            this.fullscreenOn.Size = new System.Drawing.Size(62, 35);
+            this.fullscreenOn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.fullscreenOn.TabIndex = 14;
+            this.fullscreenOn.TabStop = false;
+            this.fullscreenOn.Visible = false;
             // 
             // fullscreen
             // 
@@ -227,10 +231,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.soundOff);
+            this.Controls.Add(this.fullscreenOff);
+            this.Controls.Add(this.soundOn);
+            this.Controls.Add(this.fullscreenOn);
             this.Controls.Add(this.fullscreen);
             this.Controls.Add(this.sound);
             this.Controls.Add(this.back);
@@ -247,10 +251,10 @@
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "MainForm";
             this.Text = "Despicable Me - Memories";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullscreenOff)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.soundOn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fullscreenOn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullscreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sound)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
@@ -278,10 +282,10 @@
         private System.Windows.Forms.PictureBox back;
         private System.Windows.Forms.PictureBox sound;
         private System.Windows.Forms.PictureBox fullscreen;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox fullscreenOn;
+        private System.Windows.Forms.PictureBox soundOn;
+        private System.Windows.Forms.PictureBox fullscreenOff;
+        private System.Windows.Forms.PictureBox soundOff;
     }
 }
 

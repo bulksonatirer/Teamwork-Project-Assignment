@@ -46,6 +46,18 @@ namespace DespicableMe_Memories
             var fullscreenPos = this.PointToScreen(fullscreen.Location);
             MakeTransparent(fullscreen, fullscreenPos);
 
+            var fullscreenOnPos = this.PointToScreen(fullscreenOn.Location);
+            MakeTransparent(fullscreenOn, fullscreenOnPos);
+
+            var fullscreenOffPos = this.PointToScreen(fullscreenOff.Location);
+            MakeTransparent(fullscreenOff, fullscreenOffPos);
+
+            var soundOnPos = this.PointToScreen(soundOn.Location);
+            MakeTransparent(soundOn, soundOnPos);
+
+            var soundOffPos = this.PointToScreen(soundOff.Location);
+            MakeTransparent(soundOff, soundOffPos);
+
             var helpBoxPos = this.PointToScreen(helpBox.Location);
             helpBoxPos = StartMenu.PointToClient(helpBoxPos);
             helpBox.Parent = fixedStart;
@@ -61,7 +73,7 @@ namespace DespicableMe_Memories
             button.Location = pos;
             button.BackColor = Color.Transparent;
         }
-
+            //-----------On-Click-Function-----------\\
         private void start_Click(object sender, EventArgs e)
         {
             StartMenu.Visible = false;
@@ -77,12 +89,17 @@ namespace DespicableMe_Memories
         {
             back.Visible = true;
             sound.Visible = true;
+            soundOn.Visible = true;
+            soundOff.Visible = true;
             fullscreen.Visible = true;
+            fullscreenOn.Visible = true;
+            fullscreenOff.Visible = true;
 
             start.Visible = false;
             score.Visible = false;
             options.Visible = false;
             exit.Visible = false;
+            help.Visible = false;
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -94,12 +111,17 @@ namespace DespicableMe_Memories
         {
             back.Visible = false;
             sound.Visible = false;
+            soundOn.Visible = false;
+            soundOff.Visible = false;
             fullscreen.Visible = false;
-
+            fullscreenOn.Visible = false;
+            fullscreenOff.Visible = false;
+            
             start.Visible = true;
             score.Visible = true;
             options.Visible = true;
             exit.Visible = true;
+            help.Visible = true;
         }
 
             //----------Make-Mouse-Enter------------\\
