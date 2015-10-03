@@ -28,6 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.back = new System.Windows.Forms.PictureBox();
+            this.card15 = new System.Windows.Forms.PictureBox();
+            this.card16 = new System.Windows.Forms.PictureBox();
+            this.card14 = new System.Windows.Forms.PictureBox();
+            this.card13 = new System.Windows.Forms.PictureBox();
+            this.card11 = new System.Windows.Forms.PictureBox();
+            this.card12 = new System.Windows.Forms.PictureBox();
+            this.card10 = new System.Windows.Forms.PictureBox();
+            this.card9 = new System.Windows.Forms.PictureBox();
+            this.card7 = new System.Windows.Forms.PictureBox();
+            this.card8 = new System.Windows.Forms.PictureBox();
+            this.card6 = new System.Windows.Forms.PictureBox();
+            this.card5 = new System.Windows.Forms.PictureBox();
+            this.card3 = new System.Windows.Forms.PictureBox();
+            this.card4 = new System.Windows.Forms.PictureBox();
+            this.card2 = new System.Windows.Forms.PictureBox();
+            this.card1 = new System.Windows.Forms.PictureBox();
             this.hard = new System.Windows.Forms.PictureBox();
             this.medium = new System.Windows.Forms.PictureBox();
             this.easy = new System.Windows.Forms.PictureBox();
@@ -37,7 +54,6 @@
             this.fullscreenOn = new System.Windows.Forms.PictureBox();
             this.fullscreen = new System.Windows.Forms.PictureBox();
             this.sound = new System.Windows.Forms.PictureBox();
-            this.back = new System.Windows.Forms.PictureBox();
             this.helpBox = new System.Windows.Forms.PictureBox();
             this.help = new System.Windows.Forms.PictureBox();
             this.score = new System.Windows.Forms.PictureBox();
@@ -46,22 +62,24 @@
             this.start = new System.Windows.Forms.PictureBox();
             this.StartMenu = new System.Windows.Forms.PictureBox();
             this.easyGameScreen = new System.Windows.Forms.PictureBox();
-            this.card1 = new System.Windows.Forms.PictureBox();
-            this.card2 = new System.Windows.Forms.PictureBox();
-            this.card4 = new System.Windows.Forms.PictureBox();
-            this.card3 = new System.Windows.Forms.PictureBox();
-            this.card7 = new System.Windows.Forms.PictureBox();
-            this.card8 = new System.Windows.Forms.PictureBox();
-            this.card6 = new System.Windows.Forms.PictureBox();
-            this.card5 = new System.Windows.Forms.PictureBox();
-            this.card11 = new System.Windows.Forms.PictureBox();
-            this.card12 = new System.Windows.Forms.PictureBox();
-            this.card10 = new System.Windows.Forms.PictureBox();
-            this.card9 = new System.Windows.Forms.PictureBox();
-            this.card15 = new System.Windows.Forms.PictureBox();
-            this.card16 = new System.Windows.Forms.PictureBox();
-            this.card14 = new System.Windows.Forms.PictureBox();
-            this.card13 = new System.Windows.Forms.PictureBox();
+            this.MainMenu = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hard)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.medium)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.easy)).BeginInit();
@@ -71,7 +89,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fullscreenOn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullscreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sound)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.help)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.score)).BeginInit();
@@ -80,23 +97,167 @@
             ((System.ComponentModel.ISupportInitialize)(this.start)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.easyGameScreen)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainMenu)).BeginInit();
             this.SuspendLayout();
+            // 
+            // back
+            // 
+            this.back.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.back.Image = global::DespicableMe_Memories.Properties.Resources.back;
+            this.back.Location = new System.Drawing.Point(696, 614);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(179, 55);
+            this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.back.TabIndex = 11;
+            this.back.TabStop = false;
+            this.back.Visible = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            this.back.MouseEnter += new System.EventHandler(this.back_MouseEnter);
+            this.back.MouseLeave += new System.EventHandler(this.back_MouseLeave);
+            // 
+            // card15
+            // 
+            this.card15.Location = new System.Drawing.Point(693, 421);
+            this.card15.Name = "card15";
+            this.card15.Size = new System.Drawing.Size(100, 114);
+            this.card15.TabIndex = 39;
+            this.card15.TabStop = false;
+            this.card15.Visible = false;
+            // 
+            // card16
+            // 
+            this.card16.Location = new System.Drawing.Point(809, 421);
+            this.card16.Name = "card16";
+            this.card16.Size = new System.Drawing.Size(100, 114);
+            this.card16.TabIndex = 40;
+            this.card16.TabStop = false;
+            this.card16.Visible = false;
+            // 
+            // card14
+            // 
+            this.card14.Location = new System.Drawing.Point(576, 421);
+            this.card14.Name = "card14";
+            this.card14.Size = new System.Drawing.Size(100, 114);
+            this.card14.TabIndex = 38;
+            this.card14.TabStop = false;
+            this.card14.Visible = false;
+            // 
+            // card13
+            // 
+            this.card13.Location = new System.Drawing.Point(460, 421);
+            this.card13.Name = "card13";
+            this.card13.Size = new System.Drawing.Size(100, 114);
+            this.card13.TabIndex = 37;
+            this.card13.TabStop = false;
+            this.card13.Visible = false;
+            // 
+            // card11
+            // 
+            this.card11.Location = new System.Drawing.Point(696, 285);
+            this.card11.Name = "card11";
+            this.card11.Size = new System.Drawing.Size(100, 114);
+            this.card11.TabIndex = 35;
+            this.card11.TabStop = false;
+            this.card11.Visible = false;
+            // 
+            // card12
+            // 
+            this.card12.Location = new System.Drawing.Point(812, 285);
+            this.card12.Name = "card12";
+            this.card12.Size = new System.Drawing.Size(100, 114);
+            this.card12.TabIndex = 36;
+            this.card12.TabStop = false;
+            this.card12.Visible = false;
+            // 
+            // card10
+            // 
+            this.card10.Location = new System.Drawing.Point(579, 285);
+            this.card10.Name = "card10";
+            this.card10.Size = new System.Drawing.Size(100, 114);
+            this.card10.TabIndex = 34;
+            this.card10.TabStop = false;
+            this.card10.Visible = false;
+            // 
+            // card9
+            // 
+            this.card9.Location = new System.Drawing.Point(463, 285);
+            this.card9.Name = "card9";
+            this.card9.Size = new System.Drawing.Size(100, 114);
+            this.card9.TabIndex = 33;
+            this.card9.TabStop = false;
+            this.card9.Visible = false;
+            // 
+            // card7
+            // 
+            this.card7.Location = new System.Drawing.Point(696, 157);
+            this.card7.Name = "card7";
+            this.card7.Size = new System.Drawing.Size(100, 114);
+            this.card7.TabIndex = 31;
+            this.card7.TabStop = false;
+            this.card7.Visible = false;
+            // 
+            // card8
+            // 
+            this.card8.Location = new System.Drawing.Point(812, 157);
+            this.card8.Name = "card8";
+            this.card8.Size = new System.Drawing.Size(100, 114);
+            this.card8.TabIndex = 32;
+            this.card8.TabStop = false;
+            this.card8.Visible = false;
+            // 
+            // card6
+            // 
+            this.card6.Location = new System.Drawing.Point(579, 157);
+            this.card6.Name = "card6";
+            this.card6.Size = new System.Drawing.Size(100, 114);
+            this.card6.TabIndex = 30;
+            this.card6.TabStop = false;
+            this.card6.Visible = false;
+            // 
+            // card5
+            // 
+            this.card5.Location = new System.Drawing.Point(463, 157);
+            this.card5.Name = "card5";
+            this.card5.Size = new System.Drawing.Size(100, 114);
+            this.card5.TabIndex = 29;
+            this.card5.TabStop = false;
+            this.card5.Visible = false;
+            // 
+            // card3
+            // 
+            this.card3.Location = new System.Drawing.Point(696, 27);
+            this.card3.Name = "card3";
+            this.card3.Size = new System.Drawing.Size(100, 114);
+            this.card3.TabIndex = 28;
+            this.card3.TabStop = false;
+            this.card3.Visible = false;
+            // 
+            // card4
+            // 
+            this.card4.Location = new System.Drawing.Point(812, 27);
+            this.card4.Name = "card4";
+            this.card4.Size = new System.Drawing.Size(100, 114);
+            this.card4.TabIndex = 28;
+            this.card4.TabStop = false;
+            this.card4.Visible = false;
+            // 
+            // card2
+            // 
+            this.card2.Location = new System.Drawing.Point(579, 27);
+            this.card2.Name = "card2";
+            this.card2.Size = new System.Drawing.Size(100, 114);
+            this.card2.TabIndex = 27;
+            this.card2.TabStop = false;
+            this.card2.Visible = false;
+            // 
+            // card1
+            // 
+            this.card1.Location = new System.Drawing.Point(463, 27);
+            this.card1.Name = "card1";
+            this.card1.Size = new System.Drawing.Size(100, 114);
+            this.card1.TabIndex = 22;
+            this.card1.TabStop = false;
+            this.card1.Visible = false;
             // 
             // hard
             // 
@@ -210,22 +371,9 @@
             this.sound.TabStop = false;
             this.sound.Visible = false;
             // 
-            // back
-            // 
-            this.back.Image = global::DespicableMe_Memories.Properties.Resources.back;
-            this.back.Location = new System.Drawing.Point(696, 614);
-            this.back.Name = "back";
-            this.back.Size = new System.Drawing.Size(179, 55);
-            this.back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.back.TabIndex = 11;
-            this.back.TabStop = false;
-            this.back.Visible = false;
-            this.back.Click += new System.EventHandler(this.back_Click);
-            this.back.MouseEnter += new System.EventHandler(this.back_MouseEnter);
-            this.back.MouseLeave += new System.EventHandler(this.back_MouseLeave);
-            // 
             // helpBox
             // 
+            this.helpBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.helpBox.Image = global::DespicableMe_Memories.Properties.Resources.instuction;
             this.helpBox.Location = new System.Drawing.Point(587, 113);
             this.helpBox.Name = "helpBox";
@@ -237,6 +385,7 @@
             // 
             // help
             // 
+            this.help.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.help.Image = global::DespicableMe_Memories.Properties.Resources.help;
             this.help.Location = new System.Drawing.Point(1073, 614);
             this.help.Name = "help";
@@ -324,139 +473,29 @@
             this.easyGameScreen.TabStop = false;
             this.easyGameScreen.Visible = false;
             // 
-            // card1
+            // MainMenu
             // 
-            this.card1.Location = new System.Drawing.Point(463, 27);
-            this.card1.Name = "card1";
-            this.card1.Size = new System.Drawing.Size(100, 114);
-            this.card1.TabIndex = 22;
-            this.card1.TabStop = false;
-            // 
-            // card2
-            // 
-            this.card2.Location = new System.Drawing.Point(579, 27);
-            this.card2.Name = "card2";
-            this.card2.Size = new System.Drawing.Size(100, 114);
-            this.card2.TabIndex = 27;
-            this.card2.TabStop = false;
-            // 
-            // card4
-            // 
-            this.card4.Location = new System.Drawing.Point(812, 27);
-            this.card4.Name = "card4";
-            this.card4.Size = new System.Drawing.Size(100, 114);
-            this.card4.TabIndex = 28;
-            this.card4.TabStop = false;
-            // 
-            // card3
-            // 
-            this.card3.Location = new System.Drawing.Point(696, 27);
-            this.card3.Name = "card3";
-            this.card3.Size = new System.Drawing.Size(100, 114);
-            this.card3.TabIndex = 28;
-            this.card3.TabStop = false;
-            // 
-            // card7
-            // 
-            this.card7.Location = new System.Drawing.Point(696, 157);
-            this.card7.Name = "card7";
-            this.card7.Size = new System.Drawing.Size(100, 114);
-            this.card7.TabIndex = 31;
-            this.card7.TabStop = false;
-            // 
-            // card8
-            // 
-            this.card8.Location = new System.Drawing.Point(812, 157);
-            this.card8.Name = "card8";
-            this.card8.Size = new System.Drawing.Size(100, 114);
-            this.card8.TabIndex = 32;
-            this.card8.TabStop = false;
-            // 
-            // card6
-            // 
-            this.card6.Location = new System.Drawing.Point(579, 157);
-            this.card6.Name = "card6";
-            this.card6.Size = new System.Drawing.Size(100, 114);
-            this.card6.TabIndex = 30;
-            this.card6.TabStop = false;
-            // 
-            // card5
-            // 
-            this.card5.Location = new System.Drawing.Point(463, 157);
-            this.card5.Name = "card5";
-            this.card5.Size = new System.Drawing.Size(100, 114);
-            this.card5.TabIndex = 29;
-            this.card5.TabStop = false;
-            // 
-            // card11
-            // 
-            this.card11.Location = new System.Drawing.Point(696, 285);
-            this.card11.Name = "card11";
-            this.card11.Size = new System.Drawing.Size(100, 114);
-            this.card11.TabIndex = 35;
-            this.card11.TabStop = false;
-            // 
-            // card12
-            // 
-            this.card12.Location = new System.Drawing.Point(812, 285);
-            this.card12.Name = "card12";
-            this.card12.Size = new System.Drawing.Size(100, 114);
-            this.card12.TabIndex = 36;
-            this.card12.TabStop = false;
-            // 
-            // card10
-            // 
-            this.card10.Location = new System.Drawing.Point(579, 285);
-            this.card10.Name = "card10";
-            this.card10.Size = new System.Drawing.Size(100, 114);
-            this.card10.TabIndex = 34;
-            this.card10.TabStop = false;
-            // 
-            // card9
-            // 
-            this.card9.Location = new System.Drawing.Point(463, 285);
-            this.card9.Name = "card9";
-            this.card9.Size = new System.Drawing.Size(100, 114);
-            this.card9.TabIndex = 33;
-            this.card9.TabStop = false;
-            // 
-            // card15
-            // 
-            this.card15.Location = new System.Drawing.Point(693, 421);
-            this.card15.Name = "card15";
-            this.card15.Size = new System.Drawing.Size(100, 114);
-            this.card15.TabIndex = 39;
-            this.card15.TabStop = false;
-            // 
-            // card16
-            // 
-            this.card16.Location = new System.Drawing.Point(809, 421);
-            this.card16.Name = "card16";
-            this.card16.Size = new System.Drawing.Size(100, 114);
-            this.card16.TabIndex = 40;
-            this.card16.TabStop = false;
-            // 
-            // card14
-            // 
-            this.card14.Location = new System.Drawing.Point(576, 421);
-            this.card14.Name = "card14";
-            this.card14.Size = new System.Drawing.Size(100, 114);
-            this.card14.TabIndex = 38;
-            this.card14.TabStop = false;
-            // 
-            // card13
-            // 
-            this.card13.Location = new System.Drawing.Point(460, 421);
-            this.card13.Name = "card13";
-            this.card13.Size = new System.Drawing.Size(100, 114);
-            this.card13.TabIndex = 37;
-            this.card13.TabStop = false;
+            this.MainMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.MainMenu.ErrorImage = null;
+            this.MainMenu.Image = global::DespicableMe_Memories.Properties.Resources.mainMenu;
+            this.MainMenu.Location = new System.Drawing.Point(12, 561);
+            this.MainMenu.Name = "MainMenu";
+            this.MainMenu.Size = new System.Drawing.Size(179, 108);
+            this.MainMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MainMenu.TabIndex = 41;
+            this.MainMenu.TabStop = false;
+            this.MainMenu.Visible = false;
+            this.MainMenu.Click += new System.EventHandler(this.MainMenu_Click);
+            this.MainMenu.MouseEnter += new System.EventHandler(this.MainMenu_MouseEnter);
+            this.MainMenu.MouseLeave += new System.EventHandler(this.MainMenu_MouseLeave);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.MainMenu);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.card15);
             this.Controls.Add(this.card16);
             this.Controls.Add(this.card14);
@@ -473,7 +512,6 @@
             this.Controls.Add(this.card4);
             this.Controls.Add(this.card2);
             this.Controls.Add(this.card1);
-            this.Controls.Add(this.easyGameScreen);
             this.Controls.Add(this.hard);
             this.Controls.Add(this.medium);
             this.Controls.Add(this.easy);
@@ -483,7 +521,6 @@
             this.Controls.Add(this.fullscreenOn);
             this.Controls.Add(this.fullscreen);
             this.Controls.Add(this.sound);
-            this.Controls.Add(this.back);
             this.Controls.Add(this.helpBox);
             this.Controls.Add(this.help);
             this.Controls.Add(this.score);
@@ -491,12 +528,31 @@
             this.Controls.Add(this.exit);
             this.Controls.Add(this.start);
             this.Controls.Add(this.StartMenu);
+            this.Controls.Add(this.easyGameScreen);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1280, 720);
+            this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "MainForm";
             this.Text = "Despicable Me - Memories";
+            ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.card1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hard)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.medium)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.easy)).EndInit();
@@ -506,7 +562,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.fullscreenOn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullscreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sound)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.helpBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.help)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.score)).EndInit();
@@ -515,22 +570,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.start)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.StartMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.easyGameScreen)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.card13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MainMenu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -572,6 +612,7 @@
         private System.Windows.Forms.PictureBox card16;
         private System.Windows.Forms.PictureBox card14;
         private System.Windows.Forms.PictureBox card13;
+        private System.Windows.Forms.PictureBox MainMenu;
     }
 }
 

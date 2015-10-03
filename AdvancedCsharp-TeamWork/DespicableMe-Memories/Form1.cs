@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using WMPLib;
 
 namespace DespicableMe_Memories
 {
@@ -17,17 +18,28 @@ namespace DespicableMe_Memories
     {
         static PictureBox fixedStart;
 
+        static PictureBox fixedGame;
+
         static string fullscreenSetting = "fullscreen";
         static string soundSetting = "sound";
 
         static string fullscreenSettingState = ReadSetting(fullscreenSetting);
         static string soundSettingState = ReadSetting(soundSetting);
 
+        WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
+        int globalTop;
+        int globalLeft;
+
         public MainForm()
         {
             InitializeComponent();
             fixedStart = StartMenu;
+            //fixedGame = easyGameScreen;
+            //wplayer.URL = "Resources/buttonSound.mp3";
 
+            this.MaximumSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            
 
             //--------PictureBox-Remove-Transparent--------\\
             var startPos = this.PointToScreen(start.Location);
@@ -81,10 +93,14 @@ namespace DespicableMe_Memories
             helpBox.Location = helpBoxPos;
             helpBox.BackColor = Color.FromArgb(130, 0, 0, 0);
 
+            //var MainMenuPos = this.PointToScreen(MainMenu.Location);
+            //MakeTransparentDuringGame(MainMenu, MainMenuPos);
+
             if (soundSettingState == "true")
             {
                 soundOn.Image = Resources.onShadow;
                 soundOff.Image = Resources.off;
+
             }
             else if (soundSettingState == "false")
             {
@@ -92,22 +108,32 @@ namespace DespicableMe_Memories
                 soundOff.Image = Resources.offShadow;
             }
 
-            if (fullscreenSettingState == "true")
+            if(ReadSetting(fullscreenSetting) == "true")
             {
-                fullscreenOn.Image = Resources.onShadow;
-                fullscreenOff.Image = Resources.off;
+                CheckFullscreen();
             }
-            else if (fullscreenSettingState == "false")
+            else if(ReadSetting(fullscreenSetting) == "false")
             {
-                fullscreenOn.Image = Resources.on;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+                this.WindowState = FormWindowState.Normal;
                 fullscreenOff.Image = Resources.offShadow;
+                fullscreenOn.Image = Resources.on;
             }
+            
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
         {
             pos = fixedStart.PointToClient(pos);
             button.Parent = fixedStart;
+            button.Location = pos;
+            button.BackColor = Color.Transparent;
+        }
+
+        static public void MakeTransparentDuringGame(Control button, System.Drawing.Point pos)
+        {
+            pos = fixedGame.PointToClient(pos);
+            button.Parent = fixedGame;
             button.Location = pos;
             button.BackColor = Color.Transparent;
         }
@@ -125,11 +151,12 @@ namespace DespicableMe_Memories
             options.Visible = false;
             exit.Visible = false;
             help.Visible = false;
+            PlaySound(soundSettingState);
         }
 
         private void score_Click(object sender, EventArgs e)
         {
-
+            PlaySound(soundSettingState);
         }
 
         private void options_Click(object sender, EventArgs e)
@@ -147,6 +174,7 @@ namespace DespicableMe_Memories
             options.Visible = false;
             exit.Visible = false;
             help.Visible = false;
+            PlaySound(soundSettingState);
         }
 
         private void exit_Click(object sender, EventArgs e)
@@ -173,24 +201,30 @@ namespace DespicableMe_Memories
             options.Visible = true;
             exit.Visible = true;
             help.Visible = true;
+            PlaySound(soundSettingState);
         }
 
         private void easy_Click(object sender, EventArgs e)
         {
+            fixedGame = easyGameScreen;
             StartMenu.Visible = false;
-
             easyGameScreen.Visible = true;
-            
+            PlaySound(soundSettingState);
+            MainMenu.Visible = true;
+            var MainMenuPos = this.PointToScreen(MainMenu.Location);
+            MakeTransparentDuringGame(MainMenu, MainMenuPos);
         }
 
         private void medium_Click(object sender, EventArgs e)
         {
-
+            PlaySound(soundSettingState);
+            MainMenu.Visible = true;
         }
 
         private void hard_Click(object sender, EventArgs e)
         {
-
+            PlaySound(soundSettingState);
+            MainMenu.Visible = true;
         }
 
         //----------Make-Mouse-Enter------------\\
@@ -272,8 +306,10 @@ namespace DespicableMe_Memories
         private void soundOff_Click(object sender, EventArgs e)
         {
             AddUpdateAppSettings(soundSetting, "false");
+            soundSettingState = "false";
             soundOff.Image = Resources.offShadow;
             soundOn.Image = Resources.on;
+            PlaySound(soundSettingState);
         }
 
         private void easy_MouseEnter(object sender, EventArgs e)
@@ -339,22 +375,208 @@ namespace DespicableMe_Memories
         private void fullscreenOn_Click(object sender, EventArgs e)
         {
             AddUpdateAppSettings(fullscreenSetting, "true");
+            fullscreenSettingState = "true";
             fullscreenOn.Image = Resources.onShadow;
             fullscreenOff.Image = Resources.off;
+            PlaySound(soundSettingState);
+
+            //this.TopMost = true;
+            //this.WindowState = FormWindowState.Normal;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
+            CheckFullscreen();
         }
 
         private void fullscreenOff_Click(object sender, EventArgs e)
         {
             AddUpdateAppSettings(fullscreenSetting, "false");
+            fullscreenSettingState = "false";
             fullscreenOff.Image = Resources.offShadow;
             fullscreenOn.Image = Resources.on;
+            PlaySound(soundSettingState);
+
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            //this.WindowState = FormWindowState.Normal;
+            CheckFullscreen();
         }
 
         private void soundOn_Click(object sender, EventArgs e)
         {
             AddUpdateAppSettings(soundSetting, "true");
+            soundSettingState = "true";
             soundOn.Image = Resources.onShadow;
             soundOff.Image = Resources.off;
+            PlaySound(soundSettingState);
+        }
+
+        private void MainMenu_Click(object sender, EventArgs e)
+        {
+            StartMenu.Visible = true;
+
+            easyGameScreen.Visible = false;
+            PlaySound(soundSettingState);
+            MainMenu.Visible = false;
+        }
+
+        private void MainMenu_MouseEnter(object sender, EventArgs e)
+        {
+            MainMenu.Image = Resources.mainMenuShadow;
+        }
+
+        private void MainMenu_MouseLeave(object sender, EventArgs e)
+        {
+            MainMenu.Image = Resources.mainMenu;
+        }
+        public void PlaySound(string key)
+        {
+            if (key == "true")
+            {
+                wplayer.URL = "Resources/buttonSound.mp3";
+                wplayer.controls.play();
+            }
+        }
+        public void Resizer(int top, int left)
+        {
+            double x, y;
+            if(fullscreenSettingState == "true")
+            {
+                y = (double)top * (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                x = (double)left * (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                globalTop = (int)y;
+                globalLeft = (int)x;
+            }
+            else if (fullscreenSettingState == "false")
+            {
+                y = (double)top / (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                x = (double)left / (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                globalTop = (int)y;
+                globalLeft = (int)x;
+            }
+
+        }
+        public void CheckFullscreen()
+        {
+            if (fullscreenSettingState == "true")
+            {
+                fullscreenOn.Image = Resources.onShadow;
+                fullscreenOff.Image = Resources.off;
+                //this.TopMost = true;
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.None;
+                this.WindowState = FormWindowState.Maximized;
+
+                Resizer(start.Top, start.Left);
+                start.Top = globalTop;
+                start.Left = globalLeft;
+
+                Resizer(exit.Top, exit.Left);
+                exit.Top = globalTop;
+                exit.Left = globalLeft;
+
+                Resizer(options.Top, options.Left);
+                options.Top = globalTop;
+                options.Left = globalLeft;
+
+                Resizer(score.Top, score.Left);
+                score.Top = globalTop;
+                score.Left = globalLeft;
+
+                Resizer(sound.Top, sound.Left);
+                sound.Top = globalTop;
+                sound.Left = globalLeft;
+
+                Resizer(fullscreen.Top, fullscreen.Left);
+                fullscreen.Top = globalTop;
+                fullscreen.Left = globalLeft;
+
+                Resizer(fullscreenOn.Top, fullscreenOn.Left);
+                fullscreenOn.Top = globalTop;
+                fullscreenOn.Left = globalLeft;
+
+                Resizer(fullscreenOff.Top, fullscreenOff.Left);
+                fullscreenOff.Top = globalTop;
+                fullscreenOff.Left = globalLeft;
+
+                Resizer(soundOn.Top, soundOn.Left);
+                soundOn.Top = globalTop;
+                soundOn.Left = globalLeft;
+
+                Resizer(soundOff.Top, soundOff.Left);
+                soundOff.Top = globalTop;
+                soundOff.Left = globalLeft;
+
+                Resizer(easy.Top, easy.Left);
+                easy.Top = globalTop;
+                easy.Left = globalLeft;
+
+                Resizer(medium.Top, medium.Left);
+                medium.Top = globalTop;
+                medium.Left = globalLeft;
+
+                Resizer(hard.Top, hard.Left);
+                hard.Top = globalTop;
+                hard.Left = globalLeft;
+
+            }
+            else if (fullscreenSettingState == "false")
+            {
+                fullscreenOn.Image = Resources.on;
+                fullscreenOff.Image = Resources.offShadow;
+                this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+                this.WindowState = FormWindowState.Normal;
+
+                Resizer(start.Top, start.Left);
+                start.Top = globalTop;
+                start.Left = globalLeft;
+
+                Resizer(exit.Top, exit.Left);
+                exit.Top = globalTop;
+                exit.Left = globalLeft;
+
+                Resizer(options.Top, options.Left);
+                options.Top = globalTop;
+                options.Left = globalLeft;
+
+                Resizer(score.Top, score.Left);
+                score.Top = globalTop;
+                score.Left = globalLeft;
+
+                Resizer(sound.Top, sound.Left);
+                sound.Top = globalTop;
+                sound.Left = globalLeft;
+
+                Resizer(fullscreen.Top, fullscreen.Left);
+                fullscreen.Top = globalTop;
+                fullscreen.Left = globalLeft;
+
+                Resizer(fullscreenOn.Top, fullscreenOn.Left);
+                fullscreenOn.Top = globalTop;
+                fullscreenOn.Left = globalLeft;
+
+                Resizer(fullscreenOff.Top, fullscreenOff.Left);
+                fullscreenOff.Top = globalTop;
+                fullscreenOff.Left = globalLeft;
+
+                Resizer(soundOn.Top, soundOn.Left);
+                soundOn.Top = globalTop;
+                soundOn.Left = globalLeft;
+
+                Resizer(soundOff.Top, soundOff.Left);
+                soundOff.Top = globalTop;
+                soundOff.Left = globalLeft;
+
+                Resizer(easy.Top, easy.Left);
+                easy.Top = globalTop;
+                easy.Left = globalLeft;
+
+                Resizer(medium.Top, medium.Left);
+                medium.Top = globalTop;
+                medium.Left = globalLeft;
+
+                Resizer(hard.Top, hard.Left);
+                hard.Top = globalTop;
+                hard.Left = globalLeft;
+            }
         }
     }
 }
