@@ -50,3 +50,6 @@ C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCs
 C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\Interop.WMPLib.dll
 C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.csproj.ResolveComReference.cache
 C:\Users\Discord\Desktop\Teamwork SoftUni\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\Resources\buttonSound.mp3
+C:\Users\Georgi\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\Interop.WMPLib.dll
+C:\Users\Georgi\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\obj\Debug\DespicableMe-Memories.csproj.ResolveComReference.cache
+C:\Users\Georgi\Desktop\Teamwork-Project-Assignment\AdvancedCsharp-TeamWork\DespicableMe-Memories\bin\Debug\Resources\buttonSound.mp3

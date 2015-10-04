@@ -103,9 +103,18 @@
     <None Include="Resources\easyShadow.png" />
     <None Include="Resources\mediumShadow.png" />
     <None Include="Resources\BackgroundGameScreen.jpg" />
+    <None Include="Resources\backSite.png" />
     <Content Include="Resources\buttonSound.mp3">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\img1.png" />
+    <None Include="Resources\img2.png" />
+    <None Include="Resources\img3.png" />
+    <None Include="Resources\img4.png" />
+    <None Include="Resources\img5.png" />
+    <None Include="Resources\img6.png" />
+    <None Include="Resources\img7.png" />
+    <None Include="Resources\img8.png" />
     <Content Include="Resources\menu.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

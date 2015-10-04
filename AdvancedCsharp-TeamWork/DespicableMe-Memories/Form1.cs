@@ -31,6 +31,14 @@ namespace DespicableMe_Memories
         int globalTop;
         int globalLeft;
 
+        static Random rand = new Random();
+
+        private void RandomImages(object sender, EventArgs e)
+        {
+            object O = Resources.ResourceManager.GetObject("chan1"); //Return an object from the image chan1.png in the project
+            randCard1.Image = (Image)O; //Set the Image property of channelPic to the returned object as Image            
+        }
+
         public MainForm()
         {
             InitializeComponent();
@@ -39,7 +47,6 @@ namespace DespicableMe_Memories
             //wplayer.URL = "Resources/buttonSound.mp3";
 
             this.MaximumSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            
 
             //--------PictureBox-Remove-Transparent--------\\
             var startPos = this.PointToScreen(start.Location);
@@ -119,7 +126,6 @@ namespace DespicableMe_Memories
                 fullscreenOff.Image = Resources.offShadow;
                 fullscreenOn.Image = Resources.on;
             }
-            
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
@@ -202,6 +208,7 @@ namespace DespicableMe_Memories
             exit.Visible = true;
             help.Visible = true;
             PlaySound(soundSettingState);
+
         }
 
         private void easy_Click(object sender, EventArgs e)
@@ -213,6 +220,23 @@ namespace DespicableMe_Memories
             MainMenu.Visible = true;
             var MainMenuPos = this.PointToScreen(MainMenu.Location);
             MakeTransparentDuringGame(MainMenu, MainMenuPos);
+
+            card1.Visible = true;
+            card2.Visible = true;
+            card3.Visible = true;
+            card4.Visible = true;
+            card5.Visible = true;
+            card6.Visible = true;
+            card7.Visible = true;
+            card8.Visible = true;
+            card9.Visible = true;
+            card10.Visible = true;
+            card11.Visible = true;
+            card12.Visible = true;
+            card13.Visible = true;
+            card14.Visible = true;
+            card15.Visible = true;
+            card16.Visible = true;
         }
 
         private void medium_Click(object sender, EventArgs e)
@@ -342,34 +366,14 @@ namespace DespicableMe_Memories
             hard.Image = Resources.hard;
         }
 
-        static string ReadSetting(string key)
+        private void MainMenu_MouseEnter(object sender, EventArgs e)
         {
-
-            var appSettings = ConfigurationManager.AppSettings;
-            string result = appSettings[key] ?? "Not Found";
-            return result;
+            MainMenu.Image = Resources.mainMenuShadow;
         }
-        static void AddUpdateAppSettings(string key, string value)
+
+        private void MainMenu_MouseLeave(object sender, EventArgs e)
         {
-            try
-            {
-                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
-                var settings = configFile.AppSettings.Settings;
-                if (settings[key] == null)
-                {
-                    settings.Add(key, value);
-                }
-                else
-                {
-                    settings[key].Value = value;
-                }
-                configFile.Save(ConfigurationSaveMode.Modified);
-                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
-            }
-            catch (ConfigurationErrorsException)
-            {
-                MessageBox.Show("Error writing app settings");
-            }
+            MainMenu.Image = Resources.mainMenu;
         }
 
         private void fullscreenOn_Click(object sender, EventArgs e)
@@ -416,17 +420,56 @@ namespace DespicableMe_Memories
             easyGameScreen.Visible = false;
             PlaySound(soundSettingState);
             MainMenu.Visible = false;
+
+            card1.Visible = false;
+            card2.Visible = false;
+            card3.Visible = false;
+            card4.Visible = false;
+            card5.Visible = false;
+            card6.Visible = false;
+            card7.Visible = false;
+            card8.Visible = false;
+            card9.Visible = false;
+            card10.Visible = false;
+            card11.Visible = false;
+            card12.Visible = false;
+            card13.Visible = false;
+            card14.Visible = false;
+            card15.Visible = false;
+            card16.Visible = false;
         }
 
-        private void MainMenu_MouseEnter(object sender, EventArgs e)
+        static string ReadSetting(string key)
         {
-            MainMenu.Image = Resources.mainMenuShadow;
+
+            var appSettings = ConfigurationManager.AppSettings;
+            string result = appSettings[key] ?? "Not Found";
+            return result;
         }
 
-        private void MainMenu_MouseLeave(object sender, EventArgs e)
+        static void AddUpdateAppSettings(string key, string value)
         {
-            MainMenu.Image = Resources.mainMenu;
-        }
+            try
+            {
+                var configFile = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+                var settings = configFile.AppSettings.Settings;
+                if (settings[key] == null)
+                {
+                    settings.Add(key, value);
+                }
+                else
+                {
+                    settings[key].Value = value;
+                }
+                configFile.Save(ConfigurationSaveMode.Modified);
+                ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            }
+            catch (ConfigurationErrorsException)
+            {
+                MessageBox.Show("Error writing app settings");
+            }
+        } 
+        
         public void PlaySound(string key)
         {
             if (key == "true")
