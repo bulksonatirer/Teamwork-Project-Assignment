@@ -31,13 +31,13 @@ namespace DespicableMe_Memories
         int globalTop;
         int globalLeft;
 
-        static Random rand = new Random();
+        //veriables
+        Random location = new Random();
+        List<int> x = new List<int>();
+        List<int> y = new List<int>();
 
-        private void RandomImages(object sender, EventArgs e)
-        {
-            object O = Resources.ResourceManager.GetObject("chan1"); //Return an object from the image chan1.png in the project
-            randCard1.Image = (Image)O; //Set the Image property of channelPic to the returned object as Image            
-        }
+        PictureBox PendingImage1;
+        PictureBox PendingImage2;
 
         public MainForm()
         {
@@ -64,7 +64,7 @@ namespace DespicableMe_Memories
             var helpPos = this.PointToScreen(help.Location);
             MakeTransparent(help, helpPos);
 
-            var backPos = this.PointToScreen(back.Location);
+            var backPos = this.PointToScreen(back.Location);         
             MakeTransparent(back, backPos);
 
             var soundPos = this.PointToScreen(sound.Location);
@@ -125,6 +125,32 @@ namespace DespicableMe_Memories
                 this.WindowState = FormWindowState.Normal;
                 fullscreenOff.Image = Resources.offShadow;
                 fullscreenOn.Image = Resources.on;
+            }
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            card1.Image = Properties.Resources.img1;
+            card2.Image = Properties.Resources.img1;
+            card3.Image = Properties.Resources.img2;
+            card4.Image = Properties.Resources.img2;
+            card5.Image = Properties.Resources.img3;
+            card6.Image = Properties.Resources.img3;
+            card7.Image = Properties.Resources.img4;
+            card8.Image = Properties.Resources.img4;
+            card9.Image = Properties.Resources.img5;
+            card10.Image = Properties.Resources.img5;
+            card11.Image = Properties.Resources.img6;
+            card12.Image = Properties.Resources.img6;
+            card13.Image = Properties.Resources.img7;
+            card14.Image = Properties.Resources.img7;
+            card15.Image = Properties.Resources.img8;
+            card16.Image = Properties.Resources.img8;
+
+            foreach (PictureBox picture in CardHolderPanel.Controls)
+            {
+                picture.Cursor = Cursors.Hand;
+                picture.Image = Properties.Resources.backSite;
             }
         }
 
@@ -221,22 +247,7 @@ namespace DespicableMe_Memories
             var MainMenuPos = this.PointToScreen(MainMenu.Location);
             MakeTransparentDuringGame(MainMenu, MainMenuPos);
 
-            card1.Visible = true;
-            card2.Visible = true;
-            card3.Visible = true;
-            card4.Visible = true;
-            card5.Visible = true;
-            card6.Visible = true;
-            card7.Visible = true;
-            card8.Visible = true;
-            card9.Visible = true;
-            card10.Visible = true;
-            card11.Visible = true;
-            card12.Visible = true;
-            card13.Visible = true;
-            card14.Visible = true;
-            card15.Visible = true;
-            card16.Visible = true;
+            CardHolderPanel.Visible = true;
         }
 
         private void medium_Click(object sender, EventArgs e)
@@ -249,6 +260,63 @@ namespace DespicableMe_Memories
         {
             PlaySound(soundSettingState);
             MainMenu.Visible = true;
+        }
+
+        private void soundOn_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(soundSetting, "true");
+            soundSettingState = "true";
+            soundOn.Image = Resources.onShadow;
+            soundOff.Image = Resources.off;
+            PlaySound(soundSettingState);
+        }
+
+        private void soundOff_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(soundSetting, "false");
+            soundSettingState = "false";
+            soundOff.Image = Resources.offShadow;
+            soundOn.Image = Resources.on;
+            PlaySound(soundSettingState);
+        }
+
+        private void fullscreenOn_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(fullscreenSetting, "true");
+            fullscreenSettingState = "true";
+            fullscreenOn.Image = Resources.onShadow;
+            fullscreenOff.Image = Resources.off;
+            PlaySound(soundSettingState);
+
+            //this.TopMost = true;
+            //this.WindowState = FormWindowState.Normal;
+            //this.FormBorderStyle = FormBorderStyle.None;
+            //this.WindowState = FormWindowState.Maximized;
+            CheckFullscreen();
+        }
+
+        private void fullscreenOff_Click(object sender, EventArgs e)
+        {
+            AddUpdateAppSettings(fullscreenSetting, "false");
+            fullscreenSettingState = "false";
+            fullscreenOff.Image = Resources.offShadow;
+            fullscreenOn.Image = Resources.on;
+            PlaySound(soundSettingState);
+
+            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            //this.WindowState = FormWindowState.Normal;
+            CheckFullscreen();
+        }
+
+        private void MainMenu_Click(object sender, EventArgs e)
+        {
+            StartMenu.Visible = true;
+
+            easyGameScreen.Visible = false;
+            PlaySound(soundSettingState);
+            MainMenu.Visible = false;
+
+            CardHolderPanel.Visible = false;
         }
 
         //----------Make-Mouse-Enter------------\\
@@ -327,15 +395,6 @@ namespace DespicableMe_Memories
             back.Image = Resources.back;
         }
 
-        private void soundOff_Click(object sender, EventArgs e)
-        {
-            AddUpdateAppSettings(soundSetting, "false");
-            soundSettingState = "false";
-            soundOff.Image = Resources.offShadow;
-            soundOn.Image = Resources.on;
-            PlaySound(soundSettingState);
-        }
-
         private void easy_MouseEnter(object sender, EventArgs e)
         {
             easy.Image = Resources.easyShadow;
@@ -374,69 +433,6 @@ namespace DespicableMe_Memories
         private void MainMenu_MouseLeave(object sender, EventArgs e)
         {
             MainMenu.Image = Resources.mainMenu;
-        }
-
-        private void fullscreenOn_Click(object sender, EventArgs e)
-        {
-            AddUpdateAppSettings(fullscreenSetting, "true");
-            fullscreenSettingState = "true";
-            fullscreenOn.Image = Resources.onShadow;
-            fullscreenOff.Image = Resources.off;
-            PlaySound(soundSettingState);
-
-            //this.TopMost = true;
-            //this.WindowState = FormWindowState.Normal;
-            //this.FormBorderStyle = FormBorderStyle.None;
-            //this.WindowState = FormWindowState.Maximized;
-            CheckFullscreen();
-        }
-
-        private void fullscreenOff_Click(object sender, EventArgs e)
-        {
-            AddUpdateAppSettings(fullscreenSetting, "false");
-            fullscreenSettingState = "false";
-            fullscreenOff.Image = Resources.offShadow;
-            fullscreenOn.Image = Resources.on;
-            PlaySound(soundSettingState);
-
-            //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            //this.WindowState = FormWindowState.Normal;
-            CheckFullscreen();
-        }
-
-        private void soundOn_Click(object sender, EventArgs e)
-        {
-            AddUpdateAppSettings(soundSetting, "true");
-            soundSettingState = "true";
-            soundOn.Image = Resources.onShadow;
-            soundOff.Image = Resources.off;
-            PlaySound(soundSettingState);
-        }
-
-        private void MainMenu_Click(object sender, EventArgs e)
-        {
-            StartMenu.Visible = true;
-
-            easyGameScreen.Visible = false;
-            PlaySound(soundSettingState);
-            MainMenu.Visible = false;
-
-            card1.Visible = false;
-            card2.Visible = false;
-            card3.Visible = false;
-            card4.Visible = false;
-            card5.Visible = false;
-            card6.Visible = false;
-            card7.Visible = false;
-            card8.Visible = false;
-            card9.Visible = false;
-            card10.Visible = false;
-            card11.Visible = false;
-            card12.Visible = false;
-            card13.Visible = false;
-            card14.Visible = false;
-            card15.Visible = false;
-            card16.Visible = false;
         }
 
         static string ReadSetting(string key)
@@ -621,5 +617,417 @@ namespace DespicableMe_Memories
                 hard.Left = globalLeft;
             }
         }
+
+        //timer
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            PendingImage1.Image = Properties.Resources.backSite;
+            PendingImage2.Image = Properties.Resources.backSite;
+            PendingImage1 = null;
+            PendingImage2 = null;
+        }
+
+        #region Cards
+        private void card1_Click(object sender, EventArgs e)
+        {
+            card1.Image = Properties.Resources.img1;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card1;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card1;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card2_Click(object sender, EventArgs e)
+        {
+            card2.Image = Properties.Resources.img1;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card2;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card2;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card3_Click(object sender, EventArgs e)
+        {
+            card3.Image = Properties.Resources.img2;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card3;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card3;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card4_Click(object sender, EventArgs e)
+        {
+            card4.Image = Properties.Resources.img2;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card4;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card4;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card5_Click(object sender, EventArgs e)
+        {
+            card5.Image = Properties.Resources.img3;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card5;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card5;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card6_Click(object sender, EventArgs e)
+        {
+            card6.Image = Properties.Resources.img3;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card6;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card6;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card7_Click(object sender, EventArgs e)
+        {
+            card7.Image = Properties.Resources.img4;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card7;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card7;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card8_Click(object sender, EventArgs e)
+        {
+            card8.Image = Properties.Resources.img4;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card8;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card8;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card9_Click(object sender, EventArgs e)
+        {
+            card9.Image = Properties.Resources.img5;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card9;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card9;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card10_Click(object sender, EventArgs e)
+        {
+            card10.Image = Properties.Resources.img5;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card10;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card10;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card11_Click(object sender, EventArgs e)
+        {
+            card11.Image = Properties.Resources.img6;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card11;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card11;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card12_Click(object sender, EventArgs e)
+        {
+            card12.Image = Properties.Resources.img6;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card12;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card12;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card13_Click(object sender, EventArgs e)
+        {
+            card13.Image = Properties.Resources.img7;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card13;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card13;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card14_Click(object sender, EventArgs e)
+        {
+            card14.Image = Properties.Resources.img7;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card14;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card14;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card15_Click(object sender, EventArgs e)
+        {
+            card15.Image = Properties.Resources.img8;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card15;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card15;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+
+        private void card16_Click(object sender, EventArgs e)
+        {
+            card16.Image = Properties.Resources.img8;
+
+            if (PendingImage1 == null)
+            {
+                PendingImage1 = card16;
+            }
+            else if (PendingImage1 != null && PendingImage2 == null)
+            {
+                PendingImage2 = card16;
+            }
+            if (PendingImage1 != null && PendingImage2 != null)
+            {
+                if (PendingImage1.Tag == PendingImage2.Tag)
+                {
+
+                }
+                else
+                {
+                    timer1.Start();
+                }
+            }
+        }
+        #endregion
     }
 }
