@@ -36,11 +36,9 @@ namespace DespicableMe_Memories
 
         //veriables
         Random location = new Random();
-        List<int> x = new List<int>();
-        List<int> y = new List<int>();
-
-        PictureBox PendingImage1;
-        PictureBox PendingImage2;
+        List<Point> list = new List<Point>();
+        PictureBox CardHolder1;
+        PictureBox CardHolder2;
 
         public MainForm()
         {
@@ -129,10 +127,12 @@ namespace DespicableMe_Memories
                 fullscreenOff.Image = Resources.offShadow;
                 fullscreenOn.Image = Resources.on;
             }
+
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {
+        {      
+
             card1.Image = Properties.Resources.img1;
             card2.Image = Properties.Resources.img1;
             card3.Image = Properties.Resources.img2;
@@ -154,6 +154,20 @@ namespace DespicableMe_Memories
             {
                 picture.Cursor = Cursors.Hand;
                 picture.Image = Properties.Resources.backSite;
+            }
+            //Pogledni tuk imam malak problem... tezi dva foreacha razmestvat kartinkite random i se poluchava 
+            //obache sled kato go sloja nemoga da cykam na picboxovete...Ako gi mahnesh moje da cykash ama ne sa random :D :D pogledni go ako imash ideq....
+            foreach (PictureBox picture in CardHolderPanel.Controls)
+            {
+                picture.Enabled = false;
+                list.Add(picture.Location);
+            }
+            foreach (PictureBox picture in CardHolderPanel.Controls)
+            {
+                int next = location.Next(list.Count);
+                Point p = list[next];
+                picture.Location = p;
+                list.Remove(p);
             }
         }
 
@@ -730,35 +744,38 @@ namespace DespicableMe_Memories
             }
         }
 
-
         //timer
         private void timer1_Tick(object sender, EventArgs e)
         {
             timer1.Stop();
-            PendingImage1.Image = Properties.Resources.backSite;
-            PendingImage2.Image = Properties.Resources.backSite;
-            PendingImage1 = null;
-            PendingImage2 = null;
+            CardHolder1.Image = Properties.Resources.backSite;
+            CardHolder2.Image = Properties.Resources.backSite;
+            CardHolder1 = null;
+            CardHolder2 = null;
         }
 
         #region Cards
+
         private void card1_Click(object sender, EventArgs e)
         {
             card1.Image = Properties.Resources.img1;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card1;
+                CardHolder1 = card1;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card1;
+                CardHolder2 = card1;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card1.Enabled = false;
+                    card2.Enabled = false;
                 }
                 else
                 {
@@ -771,19 +788,22 @@ namespace DespicableMe_Memories
         {
             card2.Image = Properties.Resources.img1;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card2;
+                CardHolder1 = card2;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card2;
+                CardHolder2 = card2;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card1.Enabled = false;
+                    card2.Enabled = false;
                 }
                 else
                 {
@@ -796,19 +816,22 @@ namespace DespicableMe_Memories
         {
             card3.Image = Properties.Resources.img2;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card3;
+                CardHolder1 = card3;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card3;
+                CardHolder2 = card3;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card3.Enabled = false;
+                    card4.Enabled = false;
                 }
                 else
                 {
@@ -821,19 +844,22 @@ namespace DespicableMe_Memories
         {
             card4.Image = Properties.Resources.img2;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card4;
+                CardHolder1 = card4;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card4;
+                CardHolder2 = card4;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card3.Enabled = false;
+                    card4.Enabled = false;
                 }
                 else
                 {
@@ -846,19 +872,22 @@ namespace DespicableMe_Memories
         {
             card5.Image = Properties.Resources.img3;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card5;
+                CardHolder1 = card5;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card5;
+                CardHolder2 = card5;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card5.Enabled = false;
+                    card6.Enabled = false;
                 }
                 else
                 {
@@ -871,19 +900,22 @@ namespace DespicableMe_Memories
         {
             card6.Image = Properties.Resources.img3;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card6;
+                CardHolder1 = card6;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card6;
+                CardHolder2 = card6;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card5.Enabled = false;
+                    card6.Enabled = false;
                 }
                 else
                 {
@@ -896,19 +928,22 @@ namespace DespicableMe_Memories
         {
             card7.Image = Properties.Resources.img4;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card7;
+                CardHolder1 = card7;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card7;
+                CardHolder2 = card7;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card7.Enabled = false;
+                    card8.Enabled = false;
                 }
                 else
                 {
@@ -921,19 +956,22 @@ namespace DespicableMe_Memories
         {
             card8.Image = Properties.Resources.img4;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card8;
+                CardHolder1 = card8;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card8;
+                CardHolder2 = card8;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card7.Enabled = false;
+                    card8.Enabled = false;
                 }
                 else
                 {
@@ -946,19 +984,22 @@ namespace DespicableMe_Memories
         {
             card9.Image = Properties.Resources.img5;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card9;
+                CardHolder1 = card9;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card9;
+                CardHolder2 = card9;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card9.Enabled = false;
+                    card10.Enabled = false;
                 }
                 else
                 {
@@ -971,19 +1012,22 @@ namespace DespicableMe_Memories
         {
             card10.Image = Properties.Resources.img5;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card10;
+                CardHolder1 = card10;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card10;
+                CardHolder2 = card10;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card9.Enabled = false;
+                    card10.Enabled = false;
                 }
                 else
                 {
@@ -996,19 +1040,22 @@ namespace DespicableMe_Memories
         {
             card11.Image = Properties.Resources.img6;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card11;
+                CardHolder1 = card11;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card11;
+                CardHolder2 = card11;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card11.Enabled = false;
+                    card12.Enabled = false;
                 }
                 else
                 {
@@ -1021,19 +1068,22 @@ namespace DespicableMe_Memories
         {
             card12.Image = Properties.Resources.img6;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card12;
+                CardHolder1 = card12;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card12;
+                CardHolder2 = card12;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card11.Enabled = false;
+                    card12.Enabled = false;
                 }
                 else
                 {
@@ -1046,19 +1096,22 @@ namespace DespicableMe_Memories
         {
             card13.Image = Properties.Resources.img7;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card13;
+                CardHolder1 = card13;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card13;
+                CardHolder2 = card13;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card13.Enabled = false;
+                    card14.Enabled = false;
                 }
                 else
                 {
@@ -1071,19 +1124,22 @@ namespace DespicableMe_Memories
         {
             card14.Image = Properties.Resources.img7;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card14;
+                CardHolder1 = card14;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card14;
+                CardHolder2 = card14;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card13.Enabled = false;
+                    card14.Enabled = false;
                 }
                 else
                 {
@@ -1096,19 +1152,22 @@ namespace DespicableMe_Memories
         {
             card15.Image = Properties.Resources.img8;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card15;
+                CardHolder1 = card15;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card15;
+                CardHolder2 = card15;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card15.Enabled = false;
+                    card16.Enabled = false;
                 }
                 else
                 {
@@ -1121,19 +1180,22 @@ namespace DespicableMe_Memories
         {
             card16.Image = Properties.Resources.img8;
 
-            if (PendingImage1 == null)
+            if (CardHolder1 == null)
             {
-                PendingImage1 = card16;
+                CardHolder1 = card16;
             }
-            else if (PendingImage1 != null && PendingImage2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null)
             {
-                PendingImage2 = card16;
+                CardHolder2 = card16;
             }
-            if (PendingImage1 != null && PendingImage2 != null)
+            if (CardHolder1 != null && CardHolder2 != null)
             {
-                if (PendingImage1.Tag == PendingImage2.Tag)
+                if (CardHolder1.Tag == CardHolder2.Tag)
                 {
-
+                    CardHolder1 = null;
+                    CardHolder2 = null;
+                    card15.Enabled = false;
+                    card16.Enabled = false;
                 }
                 else
                 {

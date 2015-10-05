@@ -137,7 +137,7 @@
             this.card12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card12.TabIndex = 48;
             this.card12.TabStop = false;
-            this.card12.Tag = "12";
+            this.card12.Tag = "6";
             this.card12.Click += new System.EventHandler(this.card12_Click);
             // 
             // card16
@@ -149,7 +149,7 @@
             this.card16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card16.TabIndex = 52;
             this.card16.TabStop = false;
-            this.card16.Tag = "16";
+            this.card16.Tag = "8";
             this.card16.Click += new System.EventHandler(this.card16_Click);
             // 
             // card1
@@ -174,7 +174,7 @@
             this.card15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card15.TabIndex = 51;
             this.card15.TabStop = false;
-            this.card15.Tag = "15";
+            this.card15.Tag = "8";
             this.card15.Click += new System.EventHandler(this.card15_Click);
             // 
             // card2
@@ -186,7 +186,7 @@
             this.card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card2.TabIndex = 27;
             this.card2.TabStop = false;
-            this.card2.Tag = "2";
+            this.card2.Tag = "1";
             this.card2.Click += new System.EventHandler(this.card2_Click);
             // 
             // card14
@@ -198,7 +198,7 @@
             this.card14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card14.TabIndex = 50;
             this.card14.TabStop = false;
-            this.card14.Tag = "14";
+            this.card14.Tag = "7";
             this.card14.Click += new System.EventHandler(this.card14_Click);
             // 
             // card3
@@ -210,7 +210,7 @@
             this.card3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card3.TabIndex = 28;
             this.card3.TabStop = false;
-            this.card3.Tag = "3";
+            this.card3.Tag = "2";
             this.card3.Click += new System.EventHandler(this.card3_Click);
             // 
             // card13
@@ -222,7 +222,7 @@
             this.card13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card13.TabIndex = 49;
             this.card13.TabStop = false;
-            this.card13.Tag = "13";
+            this.card13.Tag = "7";
             this.card13.Click += new System.EventHandler(this.card13_Click);
             // 
             // card5
@@ -234,7 +234,7 @@
             this.card5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card5.TabIndex = 42;
             this.card5.TabStop = false;
-            this.card5.Tag = "5";
+            this.card5.Tag = "3";
             this.card5.Click += new System.EventHandler(this.card5_Click);
             // 
             // card4
@@ -246,7 +246,7 @@
             this.card4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card4.TabIndex = 42;
             this.card4.TabStop = false;
-            this.card4.Tag = "4";
+            this.card4.Tag = "2";
             this.card4.Click += new System.EventHandler(this.card4_Click);
             // 
             // card11
@@ -258,7 +258,7 @@
             this.card11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card11.TabIndex = 47;
             this.card11.TabStop = false;
-            this.card11.Tag = "11";
+            this.card11.Tag = "6";
             this.card11.Click += new System.EventHandler(this.card11_Click);
             // 
             // card6
@@ -270,7 +270,7 @@
             this.card6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card6.TabIndex = 43;
             this.card6.TabStop = false;
-            this.card6.Tag = "6";
+            this.card6.Tag = "3";
             this.card6.Click += new System.EventHandler(this.card6_Click);
             // 
             // card9
@@ -282,7 +282,7 @@
             this.card9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card9.TabIndex = 46;
             this.card9.TabStop = false;
-            this.card9.Tag = "9";
+            this.card9.Tag = "5";
             this.card9.Click += new System.EventHandler(this.card9_Click);
             // 
             // card7
@@ -294,7 +294,7 @@
             this.card7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card7.TabIndex = 44;
             this.card7.TabStop = false;
-            this.card7.Tag = "7";
+            this.card7.Tag = "4";
             this.card7.Click += new System.EventHandler(this.card7_Click);
             // 
             // card10
@@ -306,7 +306,7 @@
             this.card10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card10.TabIndex = 46;
             this.card10.TabStop = false;
-            this.card10.Tag = "10";
+            this.card10.Tag = "5";
             this.card10.Click += new System.EventHandler(this.card10_Click);
             // 
             // card8
@@ -318,7 +318,7 @@
             this.card8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.card8.TabIndex = 45;
             this.card8.TabStop = false;
-            this.card8.Tag = "8";
+            this.card8.Tag = "4";
             this.card8.Click += new System.EventHandler(this.card8_Click);
             // 
             // MainMenu
