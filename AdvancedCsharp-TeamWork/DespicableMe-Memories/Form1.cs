@@ -31,6 +31,9 @@ namespace DespicableMe_Memories
         int globalTop;
         int globalLeft;
 
+        int globalWidth;
+        int globalHeight;
+
         //veriables
         Random location = new Random();
         List<int> x = new List<int>();
@@ -282,30 +285,41 @@ namespace DespicableMe_Memories
 
         private void fullscreenOn_Click(object sender, EventArgs e)
         {
-            AddUpdateAppSettings(fullscreenSetting, "true");
-            fullscreenSettingState = "true";
-            fullscreenOn.Image = Resources.onShadow;
-            fullscreenOff.Image = Resources.off;
-            PlaySound(soundSettingState);
+
+
+            if(fullscreenSettingState == "false")
+            {
+                AddUpdateAppSettings(fullscreenSetting, "true");
+                fullscreenSettingState = "true";
+                fullscreenOn.Image = Resources.onShadow;
+                fullscreenOff.Image = Resources.off;
+                PlaySound(soundSettingState);
+                CheckFullscreen();
+            }
 
             //this.TopMost = true;
             //this.WindowState = FormWindowState.Normal;
             //this.FormBorderStyle = FormBorderStyle.None;
             //this.WindowState = FormWindowState.Maximized;
-            CheckFullscreen();
         }
 
         private void fullscreenOff_Click(object sender, EventArgs e)
         {
-            AddUpdateAppSettings(fullscreenSetting, "false");
-            fullscreenSettingState = "false";
-            fullscreenOff.Image = Resources.offShadow;
-            fullscreenOn.Image = Resources.on;
-            PlaySound(soundSettingState);
+            if(fullscreenSettingState == "true")
+            {
+                AddUpdateAppSettings(fullscreenSetting, "false");
+                fullscreenSettingState = "false";
+                fullscreenOff.Image = Resources.offShadow;
+                fullscreenOn.Image = Resources.on;
+                PlaySound(soundSettingState);
+                CheckFullscreen();
+
+
+            }
+
 
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             //this.WindowState = FormWindowState.Normal;
-            CheckFullscreen();
         }
 
         private void MainMenu_Click(object sender, EventArgs e)
@@ -556,6 +570,30 @@ namespace DespicableMe_Memories
                 hard.Top = globalTop;
                 hard.Left = globalLeft;
 
+                Resizer(CardHolderPanel.Top, CardHolderPanel.Left);
+                CardHolderPanel.Top = globalTop;
+                CardHolderPanel.Left = globalLeft;
+                //Resizer(CardHolderPanel.Size.Height, CardHolderPanel.Size.Width);
+
+                CardHolderPanelResizer(CardHolderPanel);
+
+                CardResizer(card1);
+                CardResizer(card2);
+                CardResizer(card3);
+                CardResizer(card4);
+                CardResizer(card5);
+                CardResizer(card6);
+                CardResizer(card7);
+                CardResizer(card8);
+                CardResizer(card9);
+                CardResizer(card10);
+                CardResizer(card11);
+                CardResizer(card12);
+                CardResizer(card13);
+                CardResizer(card14);
+                CardResizer(card15);
+                CardResizer(card16);
+
             }
             else if (fullscreenSettingState == "false")
             {
@@ -615,8 +653,83 @@ namespace DespicableMe_Memories
                 Resizer(hard.Top, hard.Left);
                 hard.Top = globalTop;
                 hard.Left = globalLeft;
+
+
+                CardHolderPanelResizer(CardHolderPanel);
+
+                CardResizer(card1);
+                CardResizer(card2);
+                CardResizer(card3);
+                CardResizer(card4);
+                CardResizer(card5);
+                CardResizer(card6);
+                CardResizer(card7);
+                CardResizer(card8);
+                CardResizer(card9);
+                CardResizer(card10);
+                CardResizer(card11);
+                CardResizer(card12);
+                CardResizer(card13);
+                CardResizer(card14);
+                CardResizer(card15);
+                CardResizer(card16);
+
             }
         }
+
+        public void CardResizer(Control card)
+        {
+            if(fullscreenSettingState == "true")
+            {
+                double newCardWidth = (double)card.Size.Width * (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                double newCardHeight = (double)card.Size.Height * (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                card.MaximumSize = new Size((int)newCardWidth, (int)newCardHeight);
+                card.Size = new Size((int)newCardWidth, (int)newCardHeight);
+                Resizer(card.Top, card.Left);
+                card.Top = globalTop;
+                card.Left = globalLeft;
+            }
+            else if(fullscreenSettingState == "false")
+            {
+                double newCardWidth = (double)card.Size.Width / (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                double newCardHeight = (double)card.Size.Height / (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                card.MaximumSize = new Size((int)newCardWidth, (int)newCardHeight);
+                card.Size = new Size((int)newCardWidth, (int)newCardHeight);
+                Resizer(card.Top, card.Left);
+                card.Top = globalTop;
+                card.Left = globalLeft;
+            }
+            
+        }
+
+        public void CardHolderPanelResizer(Control panel)
+        {
+            if(fullscreenSettingState == "true")
+            {
+                double newWidth = (double)CardHolderPanel.Size.Width * (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                double newHeight = (double)CardHolderPanel.Size.Height * (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                globalWidth = (int)newWidth;
+                globalHeight = (int)newHeight;
+                CardHolderPanel.MaximumSize = new Size(globalWidth, globalHeight);
+                CardHolderPanel.Size = new Size(globalWidth, globalHeight);
+                //Resizer(CardHolderPanel.Top, CardHolderPanel.Left);
+                //CardHolderPanel.Top = globalTop;
+                //CardHolderPanel.Left = globalLeft;
+            }
+            else if(fullscreenSettingState == "false")
+            {
+                double newWidth = (double)CardHolderPanel.Size.Width / (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                double newHeight = (double)CardHolderPanel.Size.Height / (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                globalWidth = (int)newWidth;
+                globalHeight = (int)newHeight;
+                CardHolderPanel.MaximumSize = new Size(globalWidth, globalHeight);
+                CardHolderPanel.Size = new Size(globalWidth, globalHeight);
+                Resizer(CardHolderPanel.Top, CardHolderPanel.Left);
+                CardHolderPanel.Top = globalTop;
+                CardHolderPanel.Left = globalLeft;
+            }
+        }
+
 
         //timer
         private void timer1_Tick(object sender, EventArgs e)
