@@ -17,7 +17,6 @@ namespace DespicableMe_Memories
     public partial class MainForm : Form
     {
         static PictureBox fixedStart;
-
         static PictureBox fixedGame;
 
         static string fullscreenSetting = "fullscreen";
@@ -34,6 +33,9 @@ namespace DespicableMe_Memories
         int globalWidth;
         int globalHeight;
 
+        int moves = 0;
+        int count = 0;
+
         //veriables
         Random location = new Random();
         List<Point> list = new List<Point>();
@@ -47,7 +49,7 @@ namespace DespicableMe_Memories
             //fixedGame = easyGameScreen;
             //wplayer.URL = "Resources/buttonSound.mp3";
 
-            this.MaximumSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
+            this.MaximumSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);  
 
             //--------PictureBox-Remove-Transparent--------\\
             var startPos = this.PointToScreen(start.Location);
@@ -127,48 +129,23 @@ namespace DespicableMe_Memories
                 fullscreenOff.Image = Resources.offShadow;
                 fullscreenOn.Image = Resources.on;
             }
+        }
 
+        string GetLine(string fileName, int line)
+        {
+            using (var sr = new StreamReader(fileName))
+            {
+                for (int i = 1; i <= line; i++)
+                { 
+                    sr.ReadLine();
+                }
+                return sr.ReadLine();
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
-        {      
+        {
 
-            card1.Image = Properties.Resources.img1;
-            card2.Image = Properties.Resources.img1;
-            card3.Image = Properties.Resources.img2;
-            card4.Image = Properties.Resources.img2;
-            card5.Image = Properties.Resources.img3;
-            card6.Image = Properties.Resources.img3;
-            card7.Image = Properties.Resources.img4;
-            card8.Image = Properties.Resources.img4;
-            card9.Image = Properties.Resources.img5;
-            card10.Image = Properties.Resources.img5;
-            card11.Image = Properties.Resources.img6;
-            card12.Image = Properties.Resources.img6;
-            card13.Image = Properties.Resources.img7;
-            card14.Image = Properties.Resources.img7;
-            card15.Image = Properties.Resources.img8;
-            card16.Image = Properties.Resources.img8;
-
-            foreach (PictureBox picture in CardHolderPanel.Controls)
-            {
-                picture.Cursor = Cursors.Hand;
-                picture.Image = Properties.Resources.backSite;
-            }
-            //Pogledni tuk imam malak problem... tezi dva foreacha razmestvat kartinkite random i se poluchava 
-            //obache sled kato go sloja nemoga da cykam na picboxovete...Ako gi mahnesh moje da cykash ama ne sa random :D :D pogledni go ako imash ideq....
-            foreach (PictureBox picture in CardHolderPanel.Controls)
-            {
-                picture.Enabled = false;
-                list.Add(picture.Location);
-            }
-            foreach (PictureBox picture in CardHolderPanel.Controls)
-            {
-                int next = location.Next(list.Count);
-                Point p = list[next];
-                picture.Location = p;
-                list.Remove(p);
-            }
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
@@ -256,15 +233,57 @@ namespace DespicableMe_Memories
 
         private void easy_Click(object sender, EventArgs e)
         {
+            moves = 20;
+            movesLabel.Text = moves.ToString();
+
             fixedGame = easyGameScreen;
             StartMenu.Visible = false;
             easyGameScreen.Visible = true;
             PlaySound(soundSettingState);
+
             MainMenu.Visible = true;
             var MainMenuPos = this.PointToScreen(MainMenu.Location);
             MakeTransparentDuringGame(MainMenu, MainMenuPos);
 
             CardHolderPanel.Visible = true;
+            movesPicBox.Visible = true;
+            movesLabel.Visible = true;
+
+            card1.Image = Properties.Resources.img1;
+            card2.Image = Properties.Resources.img1;
+            card3.Image = Properties.Resources.img2;
+            card4.Image = Properties.Resources.img2;
+            card5.Image = Properties.Resources.img3;
+            card6.Image = Properties.Resources.img3;
+            card7.Image = Properties.Resources.img4;
+            card8.Image = Properties.Resources.img4;
+            card9.Image = Properties.Resources.img5;
+            card10.Image = Properties.Resources.img5;
+            card11.Image = Properties.Resources.img6;
+            card12.Image = Properties.Resources.img6;
+            card13.Image = Properties.Resources.img7;
+            card14.Image = Properties.Resources.img7;
+            card15.Image = Properties.Resources.img8;
+            card16.Image = Properties.Resources.img8;
+
+            foreach (PictureBox picture in CardHolderPanel.Controls)
+            {
+                picture.Cursor = Cursors.Hand;
+                picture.Image = Properties.Resources.backSite;
+            }
+
+            foreach (PictureBox picture in CardHolderPanel.Controls)
+            {
+                list.Add(picture.Location);
+            }
+
+            foreach (PictureBox picture in CardHolderPanel.Controls)
+            {
+                int next = location.Next(list.Count - 1);
+                Point p = list[next];
+                picture.Location = p;
+                list.Remove(p);
+            }
         }
 
         private void medium_Click(object sender, EventArgs e)
@@ -299,8 +318,6 @@ namespace DespicableMe_Memories
 
         private void fullscreenOn_Click(object sender, EventArgs e)
         {
-
-
             if(fullscreenSettingState == "false")
             {
                 AddUpdateAppSettings(fullscreenSetting, "true");
@@ -327,11 +344,7 @@ namespace DespicableMe_Memories
                 fullscreenOn.Image = Resources.on;
                 PlaySound(soundSettingState);
                 CheckFullscreen();
-
-
             }
-
-
             //this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             //this.WindowState = FormWindowState.Normal;
         }
@@ -344,7 +357,16 @@ namespace DespicableMe_Memories
             PlaySound(soundSettingState);
             MainMenu.Visible = false;
 
+            questionsLabel.Visible = false;
             CardHolderPanel.Visible = false;
+            movesPicBox.Visible = false;
+            movesLabel.Visible = false;
+
+            button1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+
         }
 
         //----------Make-Mouse-Enter------------\\
@@ -754,12 +776,57 @@ namespace DespicableMe_Memories
             CardHolder2 = null;
         }
 
+        static Random rand = new Random();
+        int randRange = rand.Next(1, 7);
+
+        string correctAnswer = "";
+        string[] arr = new string[4];
+        public void IfMovesAreZero(int moves)
+        {
+            if (moves == 0)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+                questionsLabel.Visible = true;
+                questionsLabel.Text = GetLine("../../questions.txt", randRange);
+
+                button1.Visible = true;
+                button2.Visible = true;
+                button3.Visible = true;
+                button4.Visible = true;
+
+                arr = GetLine("../../answers.txt", randRange).Split(',').ToArray();
+                button1.Text = arr[0];
+                button2.Text = arr[1];
+                button3.Text = arr[2];
+                button4.Text = arr[3];
+
+                correctAnswer = " " + GetLine("../../correctAnswer.txt", randRange);
+
+            }
+        }
+
         #region Cards
+
 
         private void card1_Click(object sender, EventArgs e)
         {
             card1.Image = Properties.Resources.img1;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+            
             if (CardHolder1 == null)
             {
                 CardHolder1 = card1;
@@ -787,6 +854,19 @@ namespace DespicableMe_Memories
         private void card2_Click(object sender, EventArgs e)
         {
             card2.Image = Properties.Resources.img1;
+
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
 
             if (CardHolder1 == null)
             {
@@ -816,6 +896,19 @@ namespace DespicableMe_Memories
         {
             card3.Image = Properties.Resources.img2;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card3;
@@ -843,6 +936,19 @@ namespace DespicableMe_Memories
         private void card4_Click(object sender, EventArgs e)
         {
             card4.Image = Properties.Resources.img2;
+
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
 
             if (CardHolder1 == null)
             {
@@ -872,6 +978,19 @@ namespace DespicableMe_Memories
         {
             card5.Image = Properties.Resources.img3;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card5;
@@ -899,6 +1018,19 @@ namespace DespicableMe_Memories
         private void card6_Click(object sender, EventArgs e)
         {
             card6.Image = Properties.Resources.img3;
+         
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
 
             if (CardHolder1 == null)
             {
@@ -928,6 +1060,19 @@ namespace DespicableMe_Memories
         {
             card7.Image = Properties.Resources.img4;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card7;
@@ -955,6 +1100,19 @@ namespace DespicableMe_Memories
         private void card8_Click(object sender, EventArgs e)
         {
             card8.Image = Properties.Resources.img4;
+
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
 
             if (CardHolder1 == null)
             {
@@ -984,6 +1142,19 @@ namespace DespicableMe_Memories
         {
             card9.Image = Properties.Resources.img5;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card9;
@@ -1011,6 +1182,19 @@ namespace DespicableMe_Memories
         private void card10_Click(object sender, EventArgs e)
         {
             card10.Image = Properties.Resources.img5;
+
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
 
             if (CardHolder1 == null)
             {
@@ -1040,6 +1224,19 @@ namespace DespicableMe_Memories
         {
             card11.Image = Properties.Resources.img6;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card11;
@@ -1067,6 +1264,19 @@ namespace DespicableMe_Memories
         private void card12_Click(object sender, EventArgs e)
         {
             card12.Image = Properties.Resources.img6;
+
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
 
             if (CardHolder1 == null)
             {
@@ -1096,6 +1306,19 @@ namespace DespicableMe_Memories
         {
             card13.Image = Properties.Resources.img7;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card13;
@@ -1123,6 +1346,19 @@ namespace DespicableMe_Memories
         private void card14_Click(object sender, EventArgs e)
         {
             card14.Image = Properties.Resources.img7;
+
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
 
             if (CardHolder1 == null)
             {
@@ -1152,6 +1388,19 @@ namespace DespicableMe_Memories
         {
             card15.Image = Properties.Resources.img8;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card15;
@@ -1180,6 +1429,19 @@ namespace DespicableMe_Memories
         {
             card16.Image = Properties.Resources.img8;
 
+            count = count + 1;
+            if (count == 2)
+            {
+                moves = moves - 1;
+                movesLabel.Text = moves.ToString();
+                count = 0;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+
             if (CardHolder1 == null)
             {
                 CardHolder1 = card16;
@@ -1204,5 +1466,39 @@ namespace DespicableMe_Memories
             }
         }
         #endregion
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (correctAnswer == arr[0])
+            {
+                MessageBox.Show("CORRECT");
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (correctAnswer == arr[1])
+            {
+                MessageBox.Show("CORRECT");
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (correctAnswer == arr[2])
+            {
+                MessageBox.Show("CORRECT");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (correctAnswer == arr[3])
+            {
+                MessageBox.Show("CORRECT");
+            }
+        }
+
+        
     }
 }
