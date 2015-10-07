@@ -136,13 +136,13 @@ namespace DespicableMe_Memories
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         static public void MakeTransparent(Control button, System.Drawing.Point pos)
         {
             pos = fixedStart.PointToClient(pos);
-            button.Parent = fixedStart;
+            button.Parent = fixedStart;  
             button.Location = pos;
             button.BackColor = Color.Transparent;
         }
@@ -158,6 +158,23 @@ namespace DespicableMe_Memories
         //-----------On-Click-Function-----------\\
         private void start_Click(object sender, EventArgs e)
         {
+            card1.Enabled = true;
+            card2.Enabled = true;
+            card3.Enabled = true;
+            card4.Enabled = true;
+            card5.Enabled = true;
+            card6.Enabled = true;
+            card7.Enabled = true;
+            card8.Enabled = true;
+            card9.Enabled = true;
+            card10.Enabled = true;
+            card11.Enabled = true;
+            card12.Enabled = true;
+            card13.Enabled = true;
+            card14.Enabled = true;
+            card15.Enabled = true;
+            card16.Enabled = true;
+
             start.Visible = false;
             score.Visible = false;
             options.Visible = false;
@@ -165,7 +182,7 @@ namespace DespicableMe_Memories
             help.Visible = false;
             PlaySound(soundSettingState);
 
-            moves = 18;
+            moves = 16;
             movesLabel.Text = moves.ToString();
 
             fixedGame = easyGameScreen;
@@ -197,6 +214,7 @@ namespace DespicableMe_Memories
             card14.Image = Properties.Resources.img7;
             card15.Image = Properties.Resources.img8;
             card16.Image = Properties.Resources.img8;
+
 
             foreach (PictureBox picture in CardHolderPanel.Controls)
             {
@@ -746,7 +764,6 @@ namespace DespicableMe_Memories
 
         #region Cards
 
-
         private void card1_Click(object sender, EventArgs e)
         {
             card1.Image = Properties.Resources.img1;
@@ -911,6 +928,7 @@ namespace DespicableMe_Memories
             }
         }
 
+        
         private void card5_Click(object sender, EventArgs e)
         {
             card5.Image = Properties.Resources.img3;
@@ -1394,7 +1412,7 @@ namespace DespicableMe_Memories
                     CardHolder1 = null;
                     CardHolder2 = null;
                     card15.Enabled = false;
-                    card16.Enabled = false;
+                    card16.Enabled = false;        
                 }
                 else
                 {
@@ -1425,6 +1443,16 @@ namespace DespicableMe_Memories
                 button3.Visible = false;
                 button4.Visible = false;
             }
+            else
+            {
+                gameOver.Visible = true;
+
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+            }
         }
         int chek = 0;
         private void button2_Click(object sender, EventArgs e)
@@ -1441,6 +1469,16 @@ namespace DespicableMe_Memories
                 CardHolderPanel.Visible = true;
                 movesLabel.Visible = true;
                 movesPicBox.Visible = true;
+
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+            }
+            else
+            {
+                gameOver.Visible = true;
 
                 questionsLabel.Visible = false;
                 button1.Visible = false;
@@ -1471,6 +1509,16 @@ namespace DespicableMe_Memories
                 button3.Visible = false;
                 button4.Visible = false;
             }
+            else
+            {
+                gameOver.Visible = true;
+
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -1494,8 +1542,16 @@ namespace DespicableMe_Memories
                 button3.Visible = false;
                 button4.Visible = false;
             }
-        }
+            else
+            {
+                gameOver.Visible = true;
 
-        
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+            }
+        }
     }
 }

@@ -21,7 +21,6 @@
         }
 
         #region Windows Form Designer generated code
-
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -30,15 +29,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.CardHolderPanel = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.movesLabel = new System.Windows.Forms.Label();
-            this.questionsLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.gameOver = new System.Windows.Forms.PictureBox();
-            this.movesPicBox = new System.Windows.Forms.PictureBox();
             this.card12 = new System.Windows.Forms.PictureBox();
             this.card16 = new System.Windows.Forms.PictureBox();
             this.card1 = new System.Windows.Forms.PictureBox();
@@ -55,6 +45,16 @@
             this.card7 = new System.Windows.Forms.PictureBox();
             this.card10 = new System.Windows.Forms.PictureBox();
             this.card8 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.movesLabel = new System.Windows.Forms.Label();
+            this.questionsLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.victory = new System.Windows.Forms.PictureBox();
+            this.gameOver = new System.Windows.Forms.PictureBox();
+            this.movesPicBox = new System.Windows.Forms.PictureBox();
             this.MainMenu = new System.Windows.Forms.PictureBox();
             this.back = new System.Windows.Forms.PictureBox();
             this.soundOff = new System.Windows.Forms.PictureBox();
@@ -72,8 +72,6 @@
             this.StartMenu = new System.Windows.Forms.PictureBox();
             this.easyGameScreen = new System.Windows.Forms.PictureBox();
             this.CardHolderPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card1)).BeginInit();
@@ -90,6 +88,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.card7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.victory)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundOff)).BeginInit();
@@ -110,7 +111,8 @@
             // 
             // CardHolderPanel
             // 
-            this.CardHolderPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.CardHolderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.CardHolderPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CardHolderPanel.Controls.Add(this.card12);
             this.CardHolderPanel.Controls.Add(this.card16);
             this.CardHolderPanel.Controls.Add(this.card1);
@@ -132,107 +134,6 @@
             this.CardHolderPanel.Size = new System.Drawing.Size(476, 608);
             this.CardHolderPanel.TabIndex = 53;
             this.CardHolderPanel.Visible = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 300;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // movesLabel
-            // 
-            this.movesLabel.Font = new System.Drawing.Font("Impact", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.movesLabel.Location = new System.Drawing.Point(924, 192);
-            this.movesLabel.Name = "movesLabel";
-            this.movesLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.movesLabel.Size = new System.Drawing.Size(153, 88);
-            this.movesLabel.TabIndex = 54;
-            this.movesLabel.Text = "0";
-            this.movesLabel.Visible = false;
-            // 
-            // questionsLabel
-            // 
-            this.questionsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.questionsLabel.Font = new System.Drawing.Font("Baskerville Old Face", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.questionsLabel.Location = new System.Drawing.Point(387, 53);
-            this.questionsLabel.Name = "questionsLabel";
-            this.questionsLabel.Size = new System.Drawing.Size(580, 188);
-            this.questionsLabel.TabIndex = 57;
-            this.questionsLabel.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(427, 244);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(244, 52);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(677, 244);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(244, 52);
-            this.button2.TabIndex = 59;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(427, 302);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(244, 52);
-            this.button3.TabIndex = 61;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(677, 304);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(244, 52);
-            this.button4.TabIndex = 60;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // gameOver
-            // 
-            this.gameOver.Image = global::DespicableMe_Memories.Properties.Resources.gameOverImage;
-            this.gameOver.Location = new System.Drawing.Point(28, 21);
-            this.gameOver.Name = "gameOver";
-            this.gameOver.Size = new System.Drawing.Size(1198, 181);
-            this.gameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.gameOver.TabIndex = 62;
-            this.gameOver.TabStop = false;
-            this.gameOver.Visible = false;
-            // 
-            // movesPicBox
-            // 
-            this.movesPicBox.Image = global::DespicableMe_Memories.Properties.Resources.moves;
-            this.movesPicBox.Location = new System.Drawing.Point(924, 113);
-            this.movesPicBox.Name = "movesPicBox";
-            this.movesPicBox.Size = new System.Drawing.Size(153, 50);
-            this.movesPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.movesPicBox.TabIndex = 55;
-            this.movesPicBox.TabStop = false;
-            this.movesPicBox.Visible = false;
             // 
             // card12
             // 
@@ -426,6 +327,119 @@
             this.card8.TabStop = false;
             this.card8.Tag = "4";
             this.card8.Click += new System.EventHandler(this.card8_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // movesLabel
+            // 
+            this.movesLabel.Font = new System.Drawing.Font("Impact", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.movesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.movesLabel.Location = new System.Drawing.Point(924, 192);
+            this.movesLabel.Name = "movesLabel";
+            this.movesLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.movesLabel.Size = new System.Drawing.Size(153, 88);
+            this.movesLabel.TabIndex = 54;
+            this.movesLabel.Text = "0";
+            this.movesLabel.Visible = false;
+            // 
+            // questionsLabel
+            // 
+            this.questionsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.questionsLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.questionsLabel.Font = new System.Drawing.Font("Baskerville Old Face", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.questionsLabel.Location = new System.Drawing.Point(387, 53);
+            this.questionsLabel.Name = "questionsLabel";
+            this.questionsLabel.Size = new System.Drawing.Size(580, 188);
+            this.questionsLabel.TabIndex = 57;
+            this.questionsLabel.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(427, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(244, 52);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(677, 244);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(244, 52);
+            this.button2.TabIndex = 59;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(427, 302);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(244, 52);
+            this.button3.TabIndex = 61;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(677, 304);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(244, 52);
+            this.button4.TabIndex = 60;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // victory
+            // 
+            this.victory.Image = global::DespicableMe_Memories.Properties.Resources.victoryImage;
+            this.victory.Location = new System.Drawing.Point(28, 21);
+            this.victory.Name = "victory";
+            this.victory.Size = new System.Drawing.Size(1198, 181);
+            this.victory.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.victory.TabIndex = 63;
+            this.victory.TabStop = false;
+            this.victory.Visible = false;
+            // 
+            // gameOver
+            // 
+            this.gameOver.Image = global::DespicableMe_Memories.Properties.Resources.gameOverImage;
+            this.gameOver.Location = new System.Drawing.Point(28, 21);
+            this.gameOver.Name = "gameOver";
+            this.gameOver.Size = new System.Drawing.Size(1198, 181);
+            this.gameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gameOver.TabIndex = 62;
+            this.gameOver.TabStop = false;
+            this.gameOver.Visible = false;
+            // 
+            // movesPicBox
+            // 
+            this.movesPicBox.Image = global::DespicableMe_Memories.Properties.Resources.moves;
+            this.movesPicBox.Location = new System.Drawing.Point(924, 113);
+            this.movesPicBox.Name = "movesPicBox";
+            this.movesPicBox.Size = new System.Drawing.Size(153, 50);
+            this.movesPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.movesPicBox.TabIndex = 55;
+            this.movesPicBox.TabStop = false;
+            this.movesPicBox.Visible = false;
             // 
             // MainMenu
             // 
@@ -637,6 +651,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.victory);
             this.Controls.Add(this.gameOver);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
@@ -671,8 +686,6 @@
             this.Text = "Despicable Me - Memories";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.CardHolderPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card1)).EndInit();
@@ -689,6 +702,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.card7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.victory)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundOff)).EndInit();
@@ -754,6 +770,7 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.PictureBox gameOver;
+        private System.Windows.Forms.PictureBox victory;
     }
 }
 

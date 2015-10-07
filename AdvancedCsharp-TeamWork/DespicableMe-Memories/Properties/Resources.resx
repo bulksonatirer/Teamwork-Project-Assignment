@@ -127,6 +127,9 @@
   <data name="BackgroundGameScreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BackgroundGameScreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="backShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="onShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\onShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,9 +138,6 @@
   </data>
   <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mainMenuShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mainMenuShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="img4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -181,11 +181,11 @@
   <data name="sound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sound.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="score" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\score.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="helpShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\helpShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="offShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\offShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -220,8 +220,8 @@
   <data name="img3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\img3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="backShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\backShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="mainMenuShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mainMenuShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fullscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fullscreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -241,10 +241,13 @@
   <data name="on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="helpShadow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\helpShadow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="gameOverImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gameOverImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="score" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\score.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="victoryImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\victoryImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

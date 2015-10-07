@@ -5,5 +5,5 @@ Twitter,Facebook,Tumblr,MySpace
 William Ford,Henry Fayol,Fordiel Taylor,Henry Ford
 Java,Laura,Ada,Basic
 Electrophobia,Technophobia,Cyberphobia,Wikiophobia
-Plovdiv,Plovdiv,Sofia,Vidin
+Varna,Plovdiv,Sofia,Vidin
 Asia,Europe,Africa,None Of Them
