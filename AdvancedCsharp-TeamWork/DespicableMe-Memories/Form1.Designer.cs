@@ -30,6 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.CardHolderPanel = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.movesLabel = new System.Windows.Forms.Label();
+            this.questionsLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.gameOver = new System.Windows.Forms.PictureBox();
+            this.movesPicBox = new System.Windows.Forms.PictureBox();
             this.card12 = new System.Windows.Forms.PictureBox();
             this.card16 = new System.Windows.Forms.PictureBox();
             this.card1 = new System.Windows.Forms.PictureBox();
@@ -46,14 +55,8 @@
             this.card7 = new System.Windows.Forms.PictureBox();
             this.card10 = new System.Windows.Forms.PictureBox();
             this.card8 = new System.Windows.Forms.PictureBox();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.movesLabel = new System.Windows.Forms.Label();
-            this.movesPicBox = new System.Windows.Forms.PictureBox();
             this.MainMenu = new System.Windows.Forms.PictureBox();
             this.back = new System.Windows.Forms.PictureBox();
-            this.hard = new System.Windows.Forms.PictureBox();
-            this.medium = new System.Windows.Forms.PictureBox();
-            this.easy = new System.Windows.Forms.PictureBox();
             this.soundOff = new System.Windows.Forms.PictureBox();
             this.fullscreenOff = new System.Windows.Forms.PictureBox();
             this.soundOn = new System.Windows.Forms.PictureBox();
@@ -68,12 +71,9 @@
             this.start = new System.Windows.Forms.PictureBox();
             this.StartMenu = new System.Windows.Forms.PictureBox();
             this.easyGameScreen = new System.Windows.Forms.PictureBox();
-            this.questionsLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.CardHolderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card1)).BeginInit();
@@ -90,12 +90,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.card7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.card8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hard)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medium)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.easy)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullscreenOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundOn)).BeginInit();
@@ -136,6 +132,107 @@
             this.CardHolderPanel.Size = new System.Drawing.Size(476, 608);
             this.CardHolderPanel.TabIndex = 53;
             this.CardHolderPanel.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 300;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // movesLabel
+            // 
+            this.movesLabel.Font = new System.Drawing.Font("Impact", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.movesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.movesLabel.Location = new System.Drawing.Point(924, 192);
+            this.movesLabel.Name = "movesLabel";
+            this.movesLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.movesLabel.Size = new System.Drawing.Size(153, 88);
+            this.movesLabel.TabIndex = 54;
+            this.movesLabel.Text = "0";
+            this.movesLabel.Visible = false;
+            // 
+            // questionsLabel
+            // 
+            this.questionsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.questionsLabel.Font = new System.Drawing.Font("Baskerville Old Face", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.questionsLabel.Location = new System.Drawing.Point(387, 53);
+            this.questionsLabel.Name = "questionsLabel";
+            this.questionsLabel.Size = new System.Drawing.Size(580, 188);
+            this.questionsLabel.TabIndex = 57;
+            this.questionsLabel.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button1.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(427, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(244, 52);
+            this.button1.TabIndex = 58;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button2.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(677, 244);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(244, 52);
+            this.button2.TabIndex = 59;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button3.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(427, 302);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(244, 52);
+            this.button3.TabIndex = 61;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.button4.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(677, 304);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(244, 52);
+            this.button4.TabIndex = 60;
+            this.button4.Text = "button4";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Visible = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // gameOver
+            // 
+            this.gameOver.Image = global::DespicableMe_Memories.Properties.Resources.gameOverImage;
+            this.gameOver.Location = new System.Drawing.Point(28, 21);
+            this.gameOver.Name = "gameOver";
+            this.gameOver.Size = new System.Drawing.Size(1198, 181);
+            this.gameOver.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.gameOver.TabIndex = 62;
+            this.gameOver.TabStop = false;
+            this.gameOver.Visible = false;
+            // 
+            // movesPicBox
+            // 
+            this.movesPicBox.Image = global::DespicableMe_Memories.Properties.Resources.moves;
+            this.movesPicBox.Location = new System.Drawing.Point(924, 113);
+            this.movesPicBox.Name = "movesPicBox";
+            this.movesPicBox.Size = new System.Drawing.Size(153, 50);
+            this.movesPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.movesPicBox.TabIndex = 55;
+            this.movesPicBox.TabStop = false;
+            this.movesPicBox.Visible = false;
             // 
             // card12
             // 
@@ -330,34 +427,6 @@
             this.card8.Tag = "4";
             this.card8.Click += new System.EventHandler(this.card8_Click);
             // 
-            // timer1
-            // 
-            this.timer1.Interval = 300;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // movesLabel
-            // 
-            this.movesLabel.Font = new System.Drawing.Font("Impact", 50.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.movesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.movesLabel.Location = new System.Drawing.Point(924, 192);
-            this.movesLabel.Name = "movesLabel";
-            this.movesLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.movesLabel.Size = new System.Drawing.Size(153, 88);
-            this.movesLabel.TabIndex = 54;
-            this.movesLabel.Text = "0";
-            this.movesLabel.Visible = false;
-            // 
-            // movesPicBox
-            // 
-            this.movesPicBox.Image = global::DespicableMe_Memories.Properties.Resources.moves;
-            this.movesPicBox.Location = new System.Drawing.Point(924, 113);
-            this.movesPicBox.Name = "movesPicBox";
-            this.movesPicBox.Size = new System.Drawing.Size(153, 50);
-            this.movesPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.movesPicBox.TabIndex = 55;
-            this.movesPicBox.TabStop = false;
-            this.movesPicBox.Visible = false;
-            // 
             // MainMenu
             // 
             this.MainMenu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -388,48 +457,6 @@
             this.back.Click += new System.EventHandler(this.back_Click);
             this.back.MouseEnter += new System.EventHandler(this.back_MouseEnter);
             this.back.MouseLeave += new System.EventHandler(this.back_MouseLeave);
-            // 
-            // hard
-            // 
-            this.hard.Image = global::DespicableMe_Memories.Properties.Resources.hard;
-            this.hard.Location = new System.Drawing.Point(696, 342);
-            this.hard.Name = "hard";
-            this.hard.Size = new System.Drawing.Size(138, 55);
-            this.hard.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.hard.TabIndex = 20;
-            this.hard.TabStop = false;
-            this.hard.Visible = false;
-            this.hard.Click += new System.EventHandler(this.hard_Click);
-            this.hard.MouseEnter += new System.EventHandler(this.hard_MouseEnter);
-            this.hard.MouseLeave += new System.EventHandler(this.hard_MouseLeave);
-            // 
-            // medium
-            // 
-            this.medium.Image = global::DespicableMe_Memories.Properties.Resources.medium;
-            this.medium.Location = new System.Drawing.Point(696, 244);
-            this.medium.Name = "medium";
-            this.medium.Size = new System.Drawing.Size(186, 55);
-            this.medium.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.medium.TabIndex = 19;
-            this.medium.TabStop = false;
-            this.medium.Visible = false;
-            this.medium.Click += new System.EventHandler(this.medium_Click);
-            this.medium.MouseEnter += new System.EventHandler(this.medium_MouseEnter);
-            this.medium.MouseLeave += new System.EventHandler(this.medium_MouseLeave);
-            // 
-            // easy
-            // 
-            this.easy.Image = global::DespicableMe_Memories.Properties.Resources.easy;
-            this.easy.Location = new System.Drawing.Point(696, 147);
-            this.easy.Name = "easy";
-            this.easy.Size = new System.Drawing.Size(138, 55);
-            this.easy.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.easy.TabIndex = 18;
-            this.easy.TabStop = false;
-            this.easy.Visible = false;
-            this.easy.Click += new System.EventHandler(this.easy_Click);
-            this.easy.MouseEnter += new System.EventHandler(this.easy_MouseEnter);
-            this.easy.MouseLeave += new System.EventHandler(this.easy_MouseLeave);
             // 
             // soundOff
             // 
@@ -605,73 +632,12 @@
             this.easyGameScreen.TabStop = false;
             this.easyGameScreen.Visible = false;
             // 
-            // questionsLabel
-            // 
-            this.questionsLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.questionsLabel.Font = new System.Drawing.Font("Baskerville Old Face", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.questionsLabel.Location = new System.Drawing.Point(391, 49);
-            this.questionsLabel.Name = "questionsLabel";
-            this.questionsLabel.Size = new System.Drawing.Size(580, 188);
-            this.questionsLabel.TabIndex = 57;
-            this.questionsLabel.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button1.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(427, 228);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(244, 52);
-            this.button1.TabIndex = 58;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button2.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(677, 228);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(244, 52);
-            this.button2.TabIndex = 59;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button3.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(427, 286);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(244, 52);
-            this.button3.TabIndex = 61;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Visible = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.button4.Font = new System.Drawing.Font("Baskerville Old Face", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(677, 288);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(244, 52);
-            this.button4.TabIndex = 60;
-            this.button4.Text = "button4";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1264, 681);
+            this.Controls.Add(this.gameOver);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
@@ -682,9 +648,6 @@
             this.Controls.Add(this.CardHolderPanel);
             this.Controls.Add(this.MainMenu);
             this.Controls.Add(this.back);
-            this.Controls.Add(this.hard);
-            this.Controls.Add(this.medium);
-            this.Controls.Add(this.easy);
             this.Controls.Add(this.soundOff);
             this.Controls.Add(this.fullscreenOff);
             this.Controls.Add(this.soundOn);
@@ -708,6 +671,8 @@
             this.Text = "Despicable Me - Memories";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.CardHolderPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gameOver)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card1)).EndInit();
@@ -724,12 +689,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.card7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.card8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.movesPicBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MainMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.back)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hard)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.medium)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.easy)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fullscreenOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.soundOn)).EndInit();
@@ -765,9 +726,6 @@
         private System.Windows.Forms.PictureBox soundOn;
         private System.Windows.Forms.PictureBox fullscreenOff;
         private System.Windows.Forms.PictureBox soundOff;
-        private System.Windows.Forms.PictureBox easy;
-        private System.Windows.Forms.PictureBox medium;
-        private System.Windows.Forms.PictureBox hard;
         private System.Windows.Forms.PictureBox easyGameScreen;
         private System.Windows.Forms.PictureBox card1;
         private System.Windows.Forms.PictureBox card3;
@@ -795,6 +753,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.PictureBox gameOver;
     }
 }
 

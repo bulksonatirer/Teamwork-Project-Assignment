@@ -1,7 +1,9 @@
-Nikola Tesla, Watson, Edison, Westinghouse
-Vine, Facebook, Twitter, Instagram
-Facebook, Twitter, Jobfire, LinkedIn
-Twitter, Facebook, Tumblr, MySpace
-Instagram, Vine, Snapchat, Twitter
-Java, Laura, Ada, Basic
-Electrophobia, Technophobia, Cyberphobia ,Wikiophobia
+Nikola Tesla,Watson,Edison,Westinghouse
+Vine,Facebook,Twitter,Instagram
+Facebook,Twitter,Jobfire,LinkedIn
+Twitter,Facebook,Tumblr,MySpace
+William Ford,Henry Fayol,Fordiel Taylor,Henry Ford
+Java,Laura,Ada,Basic
+Electrophobia,Technophobia,Cyberphobia,Wikiophobia
+Plovdiv,Plovdiv,Sofia,Vidin
+Asia,Europe,Africa,None Of Them

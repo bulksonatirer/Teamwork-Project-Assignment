@@ -116,6 +116,7 @@
     <None Include="Resources\img6.png" />
     <None Include="Resources\img7.png" />
     <None Include="Resources\img8.png" />
+    <None Include="Resources\gameOverImage.png" />
     <Content Include="Resources\menu.jpg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -88,15 +88,6 @@ namespace DespicableMe_Memories
             var soundOffPos = this.PointToScreen(soundOff.Location);
             MakeTransparent(soundOff, soundOffPos);
 
-            var easyPos = this.PointToScreen(easy.Location);
-            MakeTransparent(easy, easyPos);
-
-            var mediumPos = this.PointToScreen(medium.Location);
-            MakeTransparent(medium, mediumPos);
-
-            var hardPos = this.PointToScreen(hard.Location);
-            MakeTransparent(hard, hardPos);
-
             var helpBoxPos = this.PointToScreen(helpBox.Location);
             helpBoxPos = StartMenu.PointToClient(helpBoxPos);
             helpBox.Parent = fixedStart;
@@ -167,73 +158,14 @@ namespace DespicableMe_Memories
         //-----------On-Click-Function-----------\\
         private void start_Click(object sender, EventArgs e)
         {
-            easy.Visible = true;
-            medium.Visible = true;
-            hard.Visible = true;
-            back.Visible = true;
-
             start.Visible = false;
             score.Visible = false;
             options.Visible = false;
             exit.Visible = false;
             help.Visible = false;
             PlaySound(soundSettingState);
-        }
 
-        private void score_Click(object sender, EventArgs e)
-        {
-            PlaySound(soundSettingState);
-        }
-
-        private void options_Click(object sender, EventArgs e)
-        {
-            back.Visible = true;
-            sound.Visible = true;
-            soundOn.Visible = true;
-            soundOff.Visible = true;
-            fullscreen.Visible = true;
-            fullscreenOn.Visible = true;
-            fullscreenOff.Visible = true;
-
-            start.Visible = false;
-            score.Visible = false;
-            options.Visible = false;
-            exit.Visible = false;
-            help.Visible = false;
-            PlaySound(soundSettingState);
-        }
-
-        private void exit_Click(object sender, EventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
-        }
-
-        private void back_Click(object sender, EventArgs e)
-        {
-            back.Visible = false;
-            sound.Visible = false;
-            soundOn.Visible = false;
-            soundOff.Visible = false;
-            fullscreen.Visible = false;
-            fullscreenOn.Visible = false;
-            fullscreenOff.Visible = false;
-            easy.Visible = false;
-            medium.Visible = false;
-            hard.Visible = false;
-            back.Visible = false;
-
-            start.Visible = true;
-            score.Visible = true;
-            options.Visible = true;
-            exit.Visible = true;
-            help.Visible = true;
-            PlaySound(soundSettingState);
-
-        }
-
-        private void easy_Click(object sender, EventArgs e)
-        {
-            moves = 20;
+            moves = 18;
             movesLabel.Text = moves.ToString();
 
             fixedGame = easyGameScreen;
@@ -284,18 +216,60 @@ namespace DespicableMe_Memories
                 picture.Location = p;
                 list.Remove(p);
             }
+
+            Random rand = new Random();
+            int randRange = rand.Next(1, 9);
+            questionsLabel.Text = GetLine("../../questions.txt", randRange);
+            arr = GetLine("../../answers.txt", randRange).Split(',').ToArray();
+            correctAnswer = GetLine("../../correctAnswer.txt", randRange);
         }
 
-        private void medium_Click(object sender, EventArgs e)
+        private void score_Click(object sender, EventArgs e)
         {
             PlaySound(soundSettingState);
-            MainMenu.Visible = true;
         }
 
-        private void hard_Click(object sender, EventArgs e)
+        private void options_Click(object sender, EventArgs e)
         {
+            back.Visible = true;
+            sound.Visible = true;
+            soundOn.Visible = true;
+            soundOff.Visible = true;
+            fullscreen.Visible = true;
+            fullscreenOn.Visible = true;
+            fullscreenOff.Visible = true;
+
+            start.Visible = false;
+            score.Visible = false;
+            options.Visible = false;
+            exit.Visible = false;
+            help.Visible = false;
             PlaySound(soundSettingState);
-            MainMenu.Visible = true;
+        }
+
+        private void exit_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
+
+        private void back_Click(object sender, EventArgs e)
+        {
+            back.Visible = false;
+            sound.Visible = false;
+            soundOn.Visible = false;
+            soundOff.Visible = false;
+            fullscreen.Visible = false;
+            fullscreenOn.Visible = false;
+            fullscreenOff.Visible = false;
+            back.Visible = false;
+
+            start.Visible = true;
+            score.Visible = true;
+            options.Visible = true;
+            exit.Visible = true;
+            help.Visible = true;
+            PlaySound(soundSettingState);
+
         }
 
         private void soundOn_Click(object sender, EventArgs e)
@@ -351,7 +325,15 @@ namespace DespicableMe_Memories
 
         private void MainMenu_Click(object sender, EventArgs e)
         {
+            i = 0;
+            chek = 0;
+
             StartMenu.Visible = true;
+            start.Visible = true;
+            score.Visible = true;
+            options.Visible = true;
+            exit.Visible = true;
+            help.Visible = true;
 
             easyGameScreen.Visible = false;
             PlaySound(soundSettingState);
@@ -366,7 +348,7 @@ namespace DespicableMe_Memories
             button2.Visible = false;
             button3.Visible = false;
             button4.Visible = false;
-
+            gameOver.Visible = false;
         }
 
         //----------Make-Mouse-Enter------------\\
@@ -443,36 +425,6 @@ namespace DespicableMe_Memories
         private void back_MouseLeave(object sender, EventArgs e)
         {
             back.Image = Resources.back;
-        }
-
-        private void easy_MouseEnter(object sender, EventArgs e)
-        {
-            easy.Image = Resources.easyShadow;
-        }
-
-        private void easy_MouseLeave(object sender, EventArgs e)
-        {
-            easy.Image = Resources.easy;
-        }
-
-        private void medium_MouseEnter(object sender, EventArgs e)
-        {
-            medium.Image = Resources.mediumShadow;
-        }
-
-        private void medium_MouseLeave(object sender, EventArgs e)
-        {
-            medium.Image = Resources.medium;
-        }
-
-        private void hard_MouseEnter(object sender, EventArgs e)
-        {
-            hard.Image = Resources.hardShadow;
-        }
-
-        private void hard_MouseLeave(object sender, EventArgs e)
-        {
-            hard.Image = Resources.hard;
         }
 
         private void MainMenu_MouseEnter(object sender, EventArgs e)
@@ -594,18 +546,6 @@ namespace DespicableMe_Memories
                 soundOff.Top = globalTop;
                 soundOff.Left = globalLeft;
 
-                Resizer(easy.Top, easy.Left);
-                easy.Top = globalTop;
-                easy.Left = globalLeft;
-
-                Resizer(medium.Top, medium.Left);
-                medium.Top = globalTop;
-                medium.Left = globalLeft;
-
-                Resizer(hard.Top, hard.Left);
-                hard.Top = globalTop;
-                hard.Left = globalLeft;
-
                 Resizer(CardHolderPanel.Top, CardHolderPanel.Left);
                 CardHolderPanel.Top = globalTop;
                 CardHolderPanel.Left = globalLeft;
@@ -677,19 +617,6 @@ namespace DespicableMe_Memories
                 Resizer(soundOff.Top, soundOff.Left);
                 soundOff.Top = globalTop;
                 soundOff.Left = globalLeft;
-
-                Resizer(easy.Top, easy.Left);
-                easy.Top = globalTop;
-                easy.Left = globalLeft;
-
-                Resizer(medium.Top, medium.Left);
-                medium.Top = globalTop;
-                medium.Left = globalLeft;
-
-                Resizer(hard.Top, hard.Left);
-                hard.Top = globalTop;
-                hard.Left = globalLeft;
-
 
                 CardHolderPanelResizer(CardHolderPanel);
 
@@ -776,34 +703,44 @@ namespace DespicableMe_Memories
             CardHolder2 = null;
         }
 
-        static Random rand = new Random();
-        int randRange = rand.Next(1, 7);
+        //static Random rand = new Random();
+        //int randRange = rand.Next(1, 7);
 
         string correctAnswer = "";
         string[] arr = new string[4];
+
+        int i = 0;
         public void IfMovesAreZero(int moves)
         {
-            if (moves == 0)
+            if (i == 0)
             {
                 CardHolderPanel.Visible = false;
                 movesLabel.Visible = false;
                 movesPicBox.Visible = false;
                 questionsLabel.Visible = true;
-                questionsLabel.Text = GetLine("../../questions.txt", randRange);
-
+                //questionsLabel.Text = GetLine("../../questions.txt", randRange);
+                
                 button1.Visible = true;
                 button2.Visible = true;
                 button3.Visible = true;
                 button4.Visible = true;
 
-                arr = GetLine("../../answers.txt", randRange).Split(',').ToArray();
+                //arr = GetLine("../../answers.txt", randRange).Split(',').ToArray();
                 button1.Text = arr[0];
                 button2.Text = arr[1];
                 button3.Text = arr[2];
                 button4.Text = arr[3];
 
-                correctAnswer = " " + GetLine("../../correctAnswer.txt", randRange);
+                //correctAnswer = GetLine("../../correctAnswer.txt", randRange);
+                i++;
+            }
+            else
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
 
+                gameOver.Visible = true;
             }
         }
 
@@ -1471,15 +1408,45 @@ namespace DespicableMe_Memories
         {
             if (correctAnswer == arr[0])
             {
-                MessageBox.Show("CORRECT");
+                if (chek == 0)
+                {
+                    moves = moves + 3;
+                    movesLabel.Text = moves.ToString();
+                    chek++;
+                }
+
+                CardHolderPanel.Visible = true;
+                movesLabel.Visible = true;
+                movesPicBox.Visible = true;
+
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
             }
         }
-
+        int chek = 0;
         private void button2_Click(object sender, EventArgs e)
         {
             if (correctAnswer == arr[1])
             {
-                MessageBox.Show("CORRECT");
+                if (chek == 0)
+                {
+                    moves = moves + 3;
+                    movesLabel.Text = moves.ToString();
+                    chek++;
+                }
+
+                CardHolderPanel.Visible = true;
+                movesLabel.Visible = true;
+                movesPicBox.Visible = true;
+
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
             }
         }
 
@@ -1487,7 +1454,22 @@ namespace DespicableMe_Memories
         {
             if (correctAnswer == arr[2])
             {
-                MessageBox.Show("CORRECT");
+                if (chek == 0)
+                {
+                    moves = moves + 3;
+                    movesLabel.Text = moves.ToString();
+                    chek++;
+                }
+
+                CardHolderPanel.Visible = true;
+                movesLabel.Visible = true;
+                movesPicBox.Visible = true;
+
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
             }
         }
 
@@ -1495,7 +1477,22 @@ namespace DespicableMe_Memories
         {
             if (correctAnswer == arr[3])
             {
-                MessageBox.Show("CORRECT");
+                if (chek == 0)
+                {
+                    moves = moves + 3;
+                    movesLabel.Text = moves.ToString();
+                    chek++;
+                }
+
+                CardHolderPanel.Visible = true;
+                movesLabel.Visible = true;
+                movesPicBox.Visible = true;
+
+                questionsLabel.Visible = false;
+                button1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
             }
         }
 
