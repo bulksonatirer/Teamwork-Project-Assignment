@@ -46,7 +46,7 @@ namespace DespicableMe_Memories
         {
             InitializeComponent();
             fixedStart = StartMenu;
-            //fixedGame = easyGameScreen;
+            fixedGame = easyGameScreen;
             //wplayer.URL = "Resources/buttonSound.mp3";
 
             this.MaximumSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);  
@@ -93,6 +93,19 @@ namespace DespicableMe_Memories
             helpBox.Parent = fixedStart;
             helpBox.Location = helpBoxPos;
             helpBox.BackColor = Color.FromArgb(130, 0, 0, 0);
+
+            var movesPicBoxPos = this.PointToScreen(movesPicBox.Location);
+            MakeTransparentDuringGame(movesPicBox, movesPicBoxPos);
+
+            var victoryPos = this.PointToScreen(victory.Location);
+            MakeTransparentDuringGame(victory, victoryPos);
+
+            var gameOverPos = this.PointToScreen(gameOver.Location);
+            MakeTransparentDuringGame(gameOver, gameOverPos);
+
+            var tryAgainPos = this.PointToScreen(tryAgain.Location);
+            MakeTransparentDuringGame(tryAgain, tryAgainPos);
+
 
             //var MainMenuPos = this.PointToScreen(MainMenu.Location);
             //MakeTransparentDuringGame(MainMenu, MainMenuPos);
@@ -158,6 +171,12 @@ namespace DespicableMe_Memories
         //-----------On-Click-Function-----------\\
         private void start_Click(object sender, EventArgs e)
         {
+            i = 0;
+            chek = 0;
+            count = 0;
+            CardHolder1 = null;
+            CardHolder2 = null;
+
             card1.Enabled = true;
             card2.Enabled = true;
             card3.Enabled = true;
@@ -181,7 +200,6 @@ namespace DespicableMe_Memories
             exit.Visible = false;
             help.Visible = false;
             PlaySound(soundSettingState);
-
             moves = 16;
             movesLabel.Text = moves.ToString();
 
@@ -345,6 +363,9 @@ namespace DespicableMe_Memories
         {
             i = 0;
             chek = 0;
+            count = 0;
+            CardHolder1 = null;
+            CardHolder2 = null;
 
             StartMenu.Visible = true;
             start.Visible = true;
@@ -367,6 +388,7 @@ namespace DespicableMe_Memories
             button3.Visible = false;
             button4.Visible = false;
             gameOver.Visible = false;
+            victory.Visible = false;
         }
 
         //----------Make-Mouse-Enter------------\\
@@ -571,6 +593,16 @@ namespace DespicableMe_Memories
 
                 CardHolderPanelResizer(CardHolderPanel);
 
+                Resizer(movesPicBox.Top, movesPicBox.Left);
+                movesPicBox.Top = globalTop;
+                movesPicBox.Left = globalLeft;
+
+                Resizer(movesLabel.Top, movesLabel.Left);
+                movesLabel.Top = globalTop;
+                movesLabel.Left = globalLeft;
+
+
+
                 CardResizer(card1);
                 CardResizer(card2);
                 CardResizer(card3);
@@ -635,6 +667,16 @@ namespace DespicableMe_Memories
                 Resizer(soundOff.Top, soundOff.Left);
                 soundOff.Top = globalTop;
                 soundOff.Left = globalLeft;
+
+                Resizer(movesPicBox.Top, movesPicBox.Left);
+                movesPicBox.Top = globalTop;
+                movesPicBox.Left = globalLeft;
+
+                Resizer(movesLabel.Top, movesLabel.Left);
+                movesLabel.Top = globalTop;
+                movesLabel.Left = globalLeft;
+
+                //Resizer(gameOver.Top, gameOver.)
 
                 CardHolderPanelResizer(CardHolderPanel);
 
@@ -730,36 +772,41 @@ namespace DespicableMe_Memories
         int i = 0;
         public void IfMovesAreZero(int moves)
         {
-            if (i == 0)
+            if(victory.Visible == false)
             {
-                CardHolderPanel.Visible = false;
-                movesLabel.Visible = false;
-                movesPicBox.Visible = false;
-                questionsLabel.Visible = true;
-                //questionsLabel.Text = GetLine("../../questions.txt", randRange);
-                
-                button1.Visible = true;
-                button2.Visible = true;
-                button3.Visible = true;
-                button4.Visible = true;
+                if (i == 0)
+                {
+                    CardHolderPanel.Visible = false;
+                    movesLabel.Visible = false;
+                    movesPicBox.Visible = false;
+                    questionsLabel.Visible = true;
+                    //questionsLabel.Text = GetLine("../../questions.txt", randRange);
 
-                //arr = GetLine("../../answers.txt", randRange).Split(',').ToArray();
-                button1.Text = arr[0];
-                button2.Text = arr[1];
-                button3.Text = arr[2];
-                button4.Text = arr[3];
+                    button1.Visible = true;
+                    button2.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
 
-                //correctAnswer = GetLine("../../correctAnswer.txt", randRange);
-                i++;
+                    //arr = GetLine("../../answers.txt", randRange).Split(',').ToArray();
+                    button1.Text = arr[0];
+                    button2.Text = arr[1];
+                    button3.Text = arr[2];
+                    button4.Text = arr[3];
+
+                    //correctAnswer = GetLine("../../correctAnswer.txt", randRange);
+                    i++;
+                }
+                else
+                {
+                    CardHolderPanel.Visible = false;
+                    movesLabel.Visible = false;
+                    movesPicBox.Visible = false;
+
+                    gameOver.Visible = true;
+                    tryAgain.Visible = true;
+                }
             }
-            else
-            {
-                CardHolderPanel.Visible = false;
-                movesLabel.Visible = false;
-                movesPicBox.Visible = false;
-
-                gameOver.Visible = true;
-            }
+            
         }
 
         #region Cards
@@ -768,7 +815,15 @@ namespace DespicableMe_Memories
         {
             card1.Image = Properties.Resources.img1;
 
+
+
             count = count + 1;
+
+            if(CardHolder1 == card1)
+            {
+                count = count - 1;
+            }
+
             if (count == 2)
             {
                 moves = moves - 1;
@@ -776,20 +831,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
             
             if (CardHolder1 == null)
             {
                 CardHolder1 = card1;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card1)
             {
                 CardHolder2 = card1;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card1)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -803,13 +854,32 @@ namespace DespicableMe_Memories
                     timer1.Start();
                 }
             }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
+            //card1.Enabled = false;
         }
 
         private void card2_Click(object sender, EventArgs e)
         {
             card2.Image = Properties.Resources.img1;
 
+
+
             count = count + 1;
+            if (CardHolder1 == card2)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -817,20 +887,17 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
+
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card2;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card2)
             {
                 CardHolder2 = card2;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card2)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -843,6 +910,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -850,7 +929,12 @@ namespace DespicableMe_Memories
         {
             card3.Image = Properties.Resources.img2;
 
+
             count = count + 1;
+            if (CardHolder1 == card3)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -858,20 +942,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card3;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card3)
             {
                 CardHolder2 = card3;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card3)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -884,6 +964,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -891,7 +983,13 @@ namespace DespicableMe_Memories
         {
             card4.Image = Properties.Resources.img2;
 
+
+
             count = count + 1;
+            if (CardHolder1 == card4)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -899,20 +997,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card4;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card4)
             {
                 CardHolder2 = card4;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card4)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -925,6 +1019,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -933,7 +1039,12 @@ namespace DespicableMe_Memories
         {
             card5.Image = Properties.Resources.img3;
 
+
             count = count + 1;
+            if (CardHolder1 == card5)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -941,20 +1052,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card5;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card5)
             {
                 CardHolder2 = card5;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card5)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -967,14 +1074,31 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
         private void card6_Click(object sender, EventArgs e)
         {
             card6.Image = Properties.Resources.img3;
+
          
             count = count + 1;
+            if (CardHolder1 == card6)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -982,20 +1106,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card6;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card6)
             {
                 CardHolder2 = card6;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card6)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1008,6 +1128,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -1015,7 +1147,12 @@ namespace DespicableMe_Memories
         {
             card7.Image = Properties.Resources.img4;
 
+
             count = count + 1;
+            if (CardHolder1 == card7)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1023,20 +1160,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card7;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card7)
             {
                 CardHolder2 = card7;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card7)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1049,6 +1182,19 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -1056,7 +1202,12 @@ namespace DespicableMe_Memories
         {
             card8.Image = Properties.Resources.img4;
 
+
             count = count + 1;
+            if (CardHolder1 == card8)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1064,20 +1215,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card8;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card8)
             {
                 CardHolder2 = card8;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card8)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1091,13 +1238,30 @@ namespace DespicableMe_Memories
                     timer1.Start();
                 }
             }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
         }
 
         private void card9_Click(object sender, EventArgs e)
         {
             card9.Image = Properties.Resources.img5;
 
+
             count = count + 1;
+            if (CardHolder1 == card9)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1105,20 +1269,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card9;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card9)
             {
                 CardHolder2 = card9;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card9)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1131,6 +1291,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -1138,7 +1310,12 @@ namespace DespicableMe_Memories
         {
             card10.Image = Properties.Resources.img5;
 
+
             count = count + 1;
+            if (CardHolder1 == card10)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1146,20 +1323,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card10;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card10)
             {
                 CardHolder2 = card10;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card10)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1173,13 +1346,30 @@ namespace DespicableMe_Memories
                     timer1.Start();
                 }
             }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
         }
 
         private void card11_Click(object sender, EventArgs e)
         {
             card11.Image = Properties.Resources.img6;
 
+
             count = count + 1;
+            if (CardHolder1 == card11)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1187,20 +1377,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card11;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card11)
             {
                 CardHolder2 = card11;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card11)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1213,6 +1399,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -1220,7 +1418,12 @@ namespace DespicableMe_Memories
         {
             card12.Image = Properties.Resources.img6;
 
+
             count = count + 1;
+            if (CardHolder1 == card12)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1228,20 +1431,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card12;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card12)
             {
                 CardHolder2 = card12;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card12)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1255,13 +1454,31 @@ namespace DespicableMe_Memories
                     timer1.Start();
                 }
             }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
         }
 
         private void card13_Click(object sender, EventArgs e)
         {
             card13.Image = Properties.Resources.img7;
 
+
+
             count = count + 1;
+            if (CardHolder1 == card13)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1269,20 +1486,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card13;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card13)
             {
                 CardHolder2 = card13;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card13)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1295,6 +1508,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
 
@@ -1302,7 +1527,13 @@ namespace DespicableMe_Memories
         {
             card14.Image = Properties.Resources.img7;
 
+
+
             count = count + 1;
+            if (CardHolder1 == card14)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1310,20 +1541,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card14;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card14)
             {
                 CardHolder2 = card14;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card14)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1337,13 +1564,31 @@ namespace DespicableMe_Memories
                     timer1.Start();
                 }
             }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
         }
 
         private void card15_Click(object sender, EventArgs e)
         {
             card15.Image = Properties.Resources.img8;
 
+
+
             count = count + 1;
+            if (CardHolder1 == card15)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1351,20 +1596,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card15;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card15)
             {
                 CardHolder2 = card15;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card15)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1378,13 +1619,31 @@ namespace DespicableMe_Memories
                     timer1.Start();
                 }
             }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
+            }
         }
 
         private void card16_Click(object sender, EventArgs e)
         {
             card16.Image = Properties.Resources.img8;
 
+
+
             count = count + 1;
+            if (CardHolder1 == card16)
+            {
+                count = count - 1;
+            }
             if (count == 2)
             {
                 moves = moves - 1;
@@ -1392,20 +1651,16 @@ namespace DespicableMe_Memories
                 count = 0;
             }
 
-            if (moves == 0)
-            {
-                IfMovesAreZero(moves);
-            }
 
             if (CardHolder1 == null)
             {
                 CardHolder1 = card16;
             }
-            else if (CardHolder1 != null && CardHolder2 == null)
+            else if (CardHolder1 != null && CardHolder2 == null && CardHolder1 != card16)
             {
                 CardHolder2 = card16;
             }
-            if (CardHolder1 != null && CardHolder2 != null)
+            if (CardHolder1 != null && CardHolder2 != null && CardHolder1 != card16)
             {
                 if (CardHolder1.Tag == CardHolder2.Tag)
                 {
@@ -1418,6 +1673,18 @@ namespace DespicableMe_Memories
                 {
                     timer1.Start();
                 }
+            }
+            if (card1.Enabled == false && card2.Enabled == false && card3.Enabled == false && card4.Enabled == false && card5.Enabled == false && card6.Enabled == false && card7.Enabled == false && card8.Enabled == false && card9.Enabled == false && card10.Enabled == false && card11.Enabled == false && card12.Enabled == false && card13.Enabled == false && card14.Enabled == false && card15.Enabled == false && card16.Enabled == false)
+            {
+                CardHolderPanel.Visible = false;
+                movesLabel.Visible = false;
+                movesPicBox.Visible = false;
+
+                victory.Visible = true;
+            }
+            if (moves == 0)
+            {
+                IfMovesAreZero(moves);
             }
         }
         #endregion
@@ -1446,6 +1713,7 @@ namespace DespicableMe_Memories
             else
             {
                 gameOver.Visible = true;
+                tryAgain.Visible = true;
 
                 questionsLabel.Visible = false;
                 button1.Visible = false;
@@ -1479,6 +1747,7 @@ namespace DespicableMe_Memories
             else
             {
                 gameOver.Visible = true;
+                tryAgain.Visible = true;
 
                 questionsLabel.Visible = false;
                 button1.Visible = false;
@@ -1512,6 +1781,7 @@ namespace DespicableMe_Memories
             else
             {
                 gameOver.Visible = true;
+                tryAgain.Visible = true;
 
                 questionsLabel.Visible = false;
                 button1.Visible = false;
@@ -1545,6 +1815,7 @@ namespace DespicableMe_Memories
             else
             {
                 gameOver.Visible = true;
+                tryAgain.Visible = true;
 
                 questionsLabel.Visible = false;
                 button1.Visible = false;
@@ -1552,6 +1823,22 @@ namespace DespicableMe_Memories
                 button3.Visible = false;
                 button4.Visible = false;
             }
+        }
+
+        private void tryAgain_MouseEnter(object sender, EventArgs e)
+        {
+            tryAgain.Image = Resources.tryAgainShadow;
+        }
+
+        private void tryAgain_MouseLeave(object sender, EventArgs e)
+        {
+            tryAgain.Image = Resources.tryAgain;
+        }
+
+        private void tryAgain_Click(object sender, EventArgs e)
+        {
+            gameOver.Visible = false;
+            start_Click(sender, e);
         }
     }
 }

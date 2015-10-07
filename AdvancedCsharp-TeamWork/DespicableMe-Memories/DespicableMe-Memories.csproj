@@ -81,6 +81,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tryAgainShadow.png" />
+    <None Include="Resources\tryAgain.png" />
     <None Include="Resources\victoryImage.png" />
     <None Include="Resources\victory.jpg" />
     <None Include="Resources\startShadow.png" />
