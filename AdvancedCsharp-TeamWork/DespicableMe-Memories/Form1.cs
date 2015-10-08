@@ -361,6 +361,7 @@ namespace DespicableMe_Memories
 
         private void MainMenu_Click(object sender, EventArgs e)
         {
+            tryAgain.Visible = false;
             i = 0;
             chek = 0;
             count = 0;
@@ -610,7 +611,36 @@ namespace DespicableMe_Memories
                 tryAgain.Top = globalTop;
                 tryAgain.Left = globalLeft;
 
+                //Resizer(questionsLabel.Top, questionsLabel.Left);
+                //questionsLabel.Top = globalTop;
+                //questionsLabel.Left = globalLeft;
+
+                //Resizer(button1.Top, button1.Left);
+                //button1.Top = globalTop;
+                //button1.Left = globalLeft;
+
+                //Resizer(button2.Top, button2.Left);
+                //button2.Top = globalTop;
+                //button2.Left = globalLeft;
+
+                //Resizer(button3.Top, button3.Left);
+                //button3.Top = globalTop;
+                //button3.Left = globalLeft;
+
+                //Resizer(button4.Top, button4.Left);
+                //button4.Top = globalTop;
+                //button4.Left = globalLeft;
+
+                GameElementsResizer(questionsLabel);
+                GameElementsResizer(button1);
+                GameElementsResizer(button2);
+                GameElementsResizer(button3);
+                GameElementsResizer(button4);
+
                 CardHolderPanelResizer(CardHolderPanel);
+
+                //GameElementsResizer(movesPicBox);
+                //GameElementsResizer(movesLabel);
 
                 CardResizer(card1);
                 CardResizer(card2);
@@ -687,13 +717,13 @@ namespace DespicableMe_Memories
 
                 //Resizer(gameOver.Top, gameOver.)
 
-                Resizer(movesPicBox.Top, movesPicBox.Left);
-                movesPicBox.Top = globalTop;
-                movesPicBox.Left = globalLeft;
+                //Resizer(movesPicBox.Top, movesPicBox.Left);
+                //movesPicBox.Top = globalTop;
+                //movesPicBox.Left = globalLeft;
 
-                Resizer(movesLabel.Top, movesLabel.Left);
-                movesLabel.Top = globalTop;
-                movesLabel.Left = globalLeft;
+                //Resizer(movesLabel.Top, movesLabel.Left);
+                //movesLabel.Top = globalTop;
+                //movesLabel.Left = globalLeft;
 
                 Resizer(gameOver.Top, gameOver.Left);
                 gameOver.Top = globalTop;
@@ -709,8 +739,15 @@ namespace DespicableMe_Memories
 
                 CardHolderPanelResizer(CardHolderPanel);
 
+                GameElementsResizer(questionsLabel);
+                GameElementsResizer(button1);
+                GameElementsResizer(button2);
+                GameElementsResizer(button3);
+                GameElementsResizer(button4);
 
 
+                //GameElementsResizer(movesPicBox);
+                //GameElementsResizer(movesLabel);
 
 
                 CardResizer(card1);
@@ -783,6 +820,38 @@ namespace DespicableMe_Memories
                 Resizer(CardHolderPanel.Top, CardHolderPanel.Left);
                 CardHolderPanel.Top = globalTop;
                 CardHolderPanel.Left = globalLeft;
+            }
+        }
+
+        public void GameElementsResizer(Control picbox)
+        {
+            if(fullscreenSettingState == "true")
+            {
+                double newWidth = (double)picbox.Size.Width * (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                double newHeight = (double)picbox.Size.Height * (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                globalWidth = (int)newWidth;
+                globalHeight = (int)newHeight;
+                picbox.MaximumSize = new Size(globalWidth, globalHeight);
+                picbox.Size = new Size(globalWidth, globalHeight);
+                Resizer(picbox.Top, picbox.Left);
+                picbox.Top = globalTop;
+                picbox.Left = globalLeft;
+            }
+            else if(fullscreenSettingState == "false")
+            {
+                //Resizer(picbox.Top, picbox.Left);
+                //picbox.Top = globalTop;
+                //picbox.Left = globalLeft;
+
+                double newWidth = (double)picbox.Size.Width / (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                double newHeight = (double)picbox.Size.Height / (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
+                globalWidth = (int)newWidth;
+                globalHeight = (int)newHeight;
+                picbox.MaximumSize = new Size(globalWidth, globalHeight);
+                picbox.Size = new Size(globalWidth, globalHeight);
+                Resizer(picbox.Top, picbox.Left);
+                picbox.Top = globalTop;
+                picbox.Left = globalLeft;
             }
         }
 
@@ -1872,6 +1941,7 @@ namespace DespicableMe_Memories
         {
             gameOver.Visible = false;
             start_Click(sender, e);
+            tryAgain.Visible = false;
         }
     }
 }

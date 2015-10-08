@@ -414,7 +414,7 @@
             // tryAgain
             // 
             this.tryAgain.Image = global::DespicableMe_Memories.Properties.Resources.tryAgain;
-            this.tryAgain.Location = new System.Drawing.Point(487, 304);
+            this.tryAgain.Location = new System.Drawing.Point(486, 304);
             this.tryAgain.Name = "tryAgain";
             this.tryAgain.Size = new System.Drawing.Size(388, 69);
             this.tryAgain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -454,7 +454,7 @@
             // movesPicBox
             // 
             this.movesPicBox.Image = global::DespicableMe_Memories.Properties.Resources.moves;
-            this.movesPicBox.Location = new System.Drawing.Point(924, 113);
+            this.movesPicBox.Location = new System.Drawing.Point(924, 114);
             this.movesPicBox.Name = "movesPicBox";
             this.movesPicBox.Size = new System.Drawing.Size(153, 50);
             this.movesPicBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -597,6 +597,7 @@
             this.score.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.score.TabIndex = 8;
             this.score.TabStop = false;
+            this.score.Visible = false;
             this.score.Click += new System.EventHandler(this.score_Click);
             this.score.MouseEnter += new System.EventHandler(this.score_MouseEnter);
             this.score.MouseLeave += new System.EventHandler(this.score_MouseLeave);
@@ -604,7 +605,7 @@
             // options
             // 
             this.options.Image = global::DespicableMe_Memories.Properties.Resources.options;
-            this.options.Location = new System.Drawing.Point(696, 342);
+            this.options.Location = new System.Drawing.Point(696, 240);
             this.options.Name = "options";
             this.options.Size = new System.Drawing.Size(235, 58);
             this.options.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -617,7 +618,7 @@
             // exit
             // 
             this.exit.Image = global::DespicableMe_Memories.Properties.Resources.exit;
-            this.exit.Location = new System.Drawing.Point(696, 444);
+            this.exit.Location = new System.Drawing.Point(696, 342);
             this.exit.Name = "exit";
             this.exit.Size = new System.Drawing.Size(176, 52);
             this.exit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
