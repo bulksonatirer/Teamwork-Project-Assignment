@@ -28,6 +28,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CardHolderPanel = new System.Windows.Forms.Panel();
             this.card12 = new System.Windows.Forms.PictureBox();
             this.card16 = new System.Windows.Forms.PictureBox();
@@ -701,6 +702,7 @@
             this.Controls.Add(this.StartMenu);
             this.Controls.Add(this.easyGameScreen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.MinimizeBox = false;
