@@ -521,15 +521,15 @@ namespace DespicableMe_Memories
             double x, y;
             if(fullscreenSettingState == "true")
             {
-                y = (double)top * (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
-                x = (double)left * (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                y = (double)top * ((double)Screen.PrimaryScreen.Bounds.Height / (double)720);
+                x = (double)left * ((double)Screen.PrimaryScreen.Bounds.Width / (double)1280);
                 globalTop = (int)y;
                 globalLeft = (int)x;
             }
             else if (fullscreenSettingState == "false")
             {
-                y = (double)top / (double)(Screen.PrimaryScreen.Bounds.Height / (double)720);
-                x = (double)left / (double)(Screen.PrimaryScreen.Bounds.Width / (double)1280);
+                y = (double)top / ((double)Screen.PrimaryScreen.Bounds.Height / (double)720);
+                x = (double)left / ((double)Screen.PrimaryScreen.Bounds.Width / (double)1280);
                 globalTop = (int)y;
                 globalLeft = (int)x;
             }
@@ -541,7 +541,6 @@ namespace DespicableMe_Memories
             {
                 fullscreenOn.Image = Resources.onShadow;
                 fullscreenOff.Image = Resources.off;
-                //this.TopMost = true;
                 this.WindowState = FormWindowState.Normal;
                 this.FormBorderStyle = FormBorderStyle.None;
                 this.WindowState = FormWindowState.Maximized;
@@ -591,8 +590,6 @@ namespace DespicableMe_Memories
                 CardHolderPanel.Left = globalLeft;
                 //Resizer(CardHolderPanel.Size.Height, CardHolderPanel.Size.Width);
 
-                CardHolderPanelResizer(CardHolderPanel);
-
                 Resizer(movesPicBox.Top, movesPicBox.Left);
                 movesPicBox.Top = globalTop;
                 movesPicBox.Left = globalLeft;
@@ -601,7 +598,19 @@ namespace DespicableMe_Memories
                 movesLabel.Top = globalTop;
                 movesLabel.Left = globalLeft;
 
+                Resizer(gameOver.Top, gameOver.Left);
+                gameOver.Top = globalTop;
+                gameOver.Left = globalLeft;
 
+                Resizer(victory.Top, victory.Left);
+                victory.Top = globalTop;
+                victory.Left = globalLeft;
+
+                Resizer(tryAgain.Top, tryAgain.Left);
+                tryAgain.Top = globalTop;
+                tryAgain.Left = globalLeft;
+
+                CardHolderPanelResizer(CardHolderPanel);
 
                 CardResizer(card1);
                 CardResizer(card2);
@@ -678,7 +687,31 @@ namespace DespicableMe_Memories
 
                 //Resizer(gameOver.Top, gameOver.)
 
+                Resizer(movesPicBox.Top, movesPicBox.Left);
+                movesPicBox.Top = globalTop;
+                movesPicBox.Left = globalLeft;
+
+                Resizer(movesLabel.Top, movesLabel.Left);
+                movesLabel.Top = globalTop;
+                movesLabel.Left = globalLeft;
+
+                Resizer(gameOver.Top, gameOver.Left);
+                gameOver.Top = globalTop;
+                gameOver.Left = globalLeft;
+
+                Resizer(victory.Top, victory.Left);
+                victory.Top = globalTop;
+                victory.Left = globalLeft;
+
+                Resizer(tryAgain.Top, tryAgain.Left);
+                tryAgain.Top = globalTop;
+                tryAgain.Left = globalLeft;
+
                 CardHolderPanelResizer(CardHolderPanel);
+
+
+
+
 
                 CardResizer(card1);
                 CardResizer(card2);
